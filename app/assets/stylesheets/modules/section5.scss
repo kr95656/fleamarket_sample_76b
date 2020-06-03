@@ -1,0 +1,44 @@
+.main__section5 {
+  width: 100%;
+
+  .bottom__banner {
+    background-image: url(/assets/bg-appBanner-pict.jpg);
+    padding: 100px 40px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+
+    &__contents {
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h2 {
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 1.4;
+      }
+      h3 {
+        font-size: 35px;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      }
+
+      .store__logo {
+        margin-top: 20px;
+        
+        .store__image {
+          width: 180px;
+          height: 55px;
+          border-radius: 5px;
+          margin-right: 10px;
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+  }
+}
+
