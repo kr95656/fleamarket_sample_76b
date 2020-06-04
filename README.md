@@ -41,6 +41,7 @@ Things you may want to cover:
 ## Profilesテーブル
 
 |Column|Type|Options|
+|------|----|-------|
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_name_kana|string|null: false|
@@ -61,8 +62,8 @@ Things you may want to cover:
 ## Items テーブル
 
 |Column|Type|Options|
-|item_img|reference|null: false, foreign_key: |
 |------|----|-------|
+|item_img|reference|null: false, foreign_key:|
 |name|text|null: false|
 |introduction|text|null: false|
 |category|reference|null: false, foreign_key:|
