@@ -10,7 +10,7 @@
         %br
         フリマアプリです 
       .main__mainVisual__content__btn
-        %a.aBtn(href="#")
-          = image_tag 'apple.jpeg'
-        %a.gBtn(href="#")
-          = image_tag 'google_logo.png'
+        .aBtn
+          = link_to image_tag('apple.jpeg'), root_path
+        .gBtn(href="#")
+          = link_to image_tag('google_logo.png'), root_path

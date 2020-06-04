@@ -2,8 +2,7 @@
   .header__inner
     .header__inner__main
       .header__inner__main__icon
-        %a(href="#")
-          = image_tag 'logo.png', size: "140x41"
+        = link_to image_tag('logo.png', size: "140x41"), root_path
       .header__inner__main__search-box
         = form_tag('#', method: :get) do
           %input.header__inner__main__search-box--input{placeholder: "キーワードから探す"}
@@ -13,11 +12,15 @@
     .header__inner__nav
       %ul.listsLeft
         %li.listsLeft__item.listsLeft__item--first
-          %a#catBtn(href="#")カテゴリー
+          = link_to root_path do
+            カテゴリー
         %li.listsLeft__item
-          %a#brandBtn(href="#")ブランド
+          = link_to root_path do
+            ブランド
       %ul.listsRight
         %li.listsRight__item.listsRight__item--login
-          %a(href="#")ログイン
+          = link_to root_path do
+            ログイン
         %li.listsRight__item.listsRight__item--new
-          %a(href="#")新規会員登録
+          = link_to root_path do
+            新規会員登録
