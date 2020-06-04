@@ -63,7 +63,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|item_img|reference|null: false, foreign_key:|
 |name|text|null: false|
 |introduction|text|null: false|
 |category|reference|null: false, foreign_key:|
