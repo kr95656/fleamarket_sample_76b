@@ -1,1 +1,23 @@
-ヘッダーです
+.header
+  .header__inner
+    .header__inner__main
+      .header__inner__main__icon
+        %a(href="#")
+          = image_tag 'logo.png', size: "140x41"
+      .header__inner__main__search-box
+        = form_tag('#', method: :get) do
+          %input.header__inner__main__search-box--input{placeholder: "キーワードから探す"}
+          %button.header__inner__main__search-box__btn-search{type: "submit"}
+            = image_tag 'icon-search 1.png', size: "20x20"
+            
+    .header__inner__nav
+      %ul.listsLeft
+        %li.listsLeft__item.listsLeft__item--first
+          %a#catBtn(href="#")カテゴリー
+        %li.listsLeft__item
+          %a#brandBtn(href="#")ブランド
+      %ul.listsRight
+        %li.listsRight__item.listsRight__item--login
+          %a(href="#")ログイン
+        %li.listsRight__item.listsRight__item--new
+          %a(href="#")新規会員登録
