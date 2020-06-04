@@ -27,13 +27,13 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false
+|nickname|string|null: false|
 |email|string|null: false, unique: true|
-|password|string|null: false
+|password|string|null: false|
 
 
 ### Association
-- has_one :profile, dependent: :destroy
+- has_one :profile,dependent: :destroy
 - has_one :sending_destination, dependent: :destroy
 - has_one :credit_card, dependent: :destroy
 - has_many :items, dependent: :destroy
@@ -41,18 +41,17 @@ Things you may want to cover:
 ## Profilesテーブル
 
 |Column|Type|Options|
-|first_name|string|null: false
-|last_name|string|null: false
-|first_name_kana|string|null: false
-|first_name_kana|string|null: false
-|last_name_kana|string|null: false
-|birth_year|string|null: false
-|birth_month|string|null: false
-|birth_day|string|null: false
+|first_name|string|null: false|
+|last_name|string|null: false|
+|first_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
+|birth_year|string|null: false|
+|birth_month|string|null: false|
+|birth_day|string|null: false|
 |introduction|text|
 |image|string|
 |user|reference|null: false, foreign_key: true|
-
 
 
 ### Association
@@ -81,7 +80,7 @@ Things you may want to cover:
 - belongs_to_active_hash :item_condition
 - belongs_to_active_hash :postage_payer
 - belongs_to_active_hash :shipping_day
--belongs_to_active_hash :postage_type
+- belongs_to_active_hash :postage_type
 - has_many :item_imgs, dependent: :destroy
 - belongs_to :user
 
@@ -95,7 +94,7 @@ Things you may want to cover:
 |genre|string|null: false|
 
 ### Association
--has_many :items 
+- has_many :items 
 
 
 ## Brandsテーブル
@@ -106,8 +105,6 @@ Things you may want to cover:
 
 ### Association
 -has_many :items 
-
-
 
 ## Item_condition  テーブル
 
@@ -140,8 +137,6 @@ Things you may want to cover:
 - has_many :items
 
 
-
-
 ## shipping_destinationテーブル
 
 |Column|Type|Options|
@@ -161,10 +156,6 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-
-
-
-
 
 ## Shipping_day テーブル
 
@@ -191,6 +182,3 @@ Things you may want to cover:
 - belongs_to:user
 
 
-
-
-test
