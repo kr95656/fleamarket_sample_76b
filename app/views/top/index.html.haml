@@ -1,5 +1,6 @@
 .wrapper
-
+  .header
+    = render partial: 'header'
   .main__section1  
     = render partial: 'section1'
   .main__section2
@@ -8,5 +9,10 @@
     = render partial: 'section3'
   .main__section4
     = render partial: 'section4'
-
-
+  .main__section5
+    = render partial: 'section5'
+  .footer
+    = render partial: 'footer'
+  = link_to root_path, class: "purchage__send" do
+    %p 出品する
+    %img.camera__image{:alt => "", :src => "assets/icon_camera.png"}1
