@@ -70,9 +70,9 @@ Things you may want to cover:
 |item_condition|reference|null: false, foreign_key:|
 |postage_payer|reference|null: false, foreign_key: 
 |shipping_prefecture|integer|null: false|
-|shipping_day|nteger|null: false, foreign_key:|
+|shipping_day|reference|null: false, foreign_key:|
 |price|integer|null: false|
-|user|string|null: false|
+|user|reference|null: false, foreign_key:|
  
 ### Association
 - belongs_to :category 
