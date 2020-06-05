@@ -5,22 +5,22 @@
     .signupWrapper__head
       %h2 本人確認情報入力
     .signupWrapper__content
-      = form_for(@identification, url: identifications_path) do |f|
-        = render "devise/shared/error_messages", resource: @identification
+      = form_for(@profile, url: profiles_path) do |f|
+        = render "devise/shared/error_messages", resource: @profile
         
         .signupWrapper__content__formGroup
           = f.label :お名前（全角）, class: 'signupWrapper__content__formGroup__label'
           %span.signupWrapper__content__formGroup__label--must 必須
           %br/
-          = f.text_field :familyName, autofocus: true, autocomplete: "familyName", class: 'signupWrapper__content__formGroup__form--half', placeholder: '例) 振間'
-          = f.text_field :firstName, autofocus: true, autocomplete: "firstName", class: 'signupWrapper__content__formGroup__form--half', placeholder: '例) 太郎'
+          = f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: 'signupWrapper__content__formGroup__form--half', placeholder: '例) 振間'
+          = f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: 'signupWrapper__content__formGroup__form--half', placeholder: '例) 太郎'
         
         .signupWrapper__content__formGroup
           = f.label :お名前かな（全角）, class: 'signupWrapper__content__formGroup__label'
           %span.signupWrapper__content__formGroup__label--must 必須
           %br/
-          = f.text_field :familyNameKana, autofocus: true, autocomplete: "familyNameKana", class: 'signupWrapper__content__formGroup__form--half', placeholder: '例) ふりま'
-          = f.text_field :firstNameKana, autofocus: true, autocomplete: "firstNameKana", class: 'signupWrapper__content__formGroup__form--half', placeholder: '例) たろう'
+          = f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", class: 'signupWrapper__content__formGroup__form--half', placeholder: '例) ふりま'
+          = f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", class: 'signupWrapper__content__formGroup__form--half', placeholder: '例) たろう'
         
         .signupWrapper__content__formGroup
           = f.label :生年月日, class: 'signupWrapper__content__formGroup__label'
