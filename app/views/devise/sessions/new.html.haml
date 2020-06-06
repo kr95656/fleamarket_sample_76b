@@ -25,38 +25,3 @@
 
   = render partial: 'footer'
   
-  
-
-
-
-
-
-
-
--# .login7
--#   = render partial: 'header'
-
--#   .login
--#     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
--#       .address
--#         = f.label :email,"メールアドレス"
--#         .address__1
--#           .address__1__2
--#         = f.email_field :email, autofocus: true, autocomplete: "email"
--#       .password
--#         = f.label :password,"パスワード"
--#         .password__3
--#           .password__3__4
--#             = f.password_field :password, autocomplete: "current-password"
--#       - if devise_mapping.rememberable?
--#         .path
--#           .path__5
--#             = f.check_box :remember_me
--#           .path__6
--#             = f.label :remember_me
--#         .actions
--#           %input#submit_button{:name => "submit", :type => "submit", :value => "ログイン"}/
--#         .notes
--#           = render "devise/shared/links"
-
--#   = render partial: 'footer'
