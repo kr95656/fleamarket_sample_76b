@@ -1,3 +1,70 @@
 .main-contents {
+  text-align: center;
+  background-color: #3CCACE;
+  width: 100%;
+  height: 100%;
+  
+  .mypage-user-icon {
+    position: relative;
+    text-align: center;
+    padding: 40px 20px;
+    width: 700px;
+    height: 200px;
+    
 
+    &__container {
+      display: block;
+      color: #333;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      figure {
+        height: 60px;
+        width: 60px;
+        margin: 0 auto;
+        .user-icon {
+  
+        }
+      }
+      .user-name {
+        margin: 8px 0 0;
+        font-size: 14px;
+        color: #333;
+        line-height: 1;
+        font-weight: bold;
+
+      }
+      .mypage-number {
+        margin: 8px 0 0;
+        display: flex;
+        justify-content: center;/* 水平方向 */
+        align-items: center;/* 垂直方向 */
+        
+        .evaluation {
+          font-size: 14px;
+
+          .bold {
+            font-size: 16px;
+            margin: 0 0 0 8px;
+          }
+        }
+        .exhibition {
+          font-size: 14px;
+          margin: 0 0 0 16px;
+
+          .bold {
+            font-size: 16px;
+            margin: 0 0 0 8px;
+
+          }
+        }
+      }
+    }
+  }
+
+  .mypage-tab-container__notification-todo {
+
+  }
+  
 }

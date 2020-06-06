@@ -1,7 +1,33 @@
 .main-contents
   %section.mypage-user-icon
-    ryo
-  %section.mypage-tabs-notification
-    news
-  %section.mypage-tabs-container
-    trade data
+    %a(href="#"){class:"mypage-user-icon__container"}
+      %figure
+        = image_tag "member_photo_noimage_thumb.png", class: "user-icon", size: "60x60"
+      %h2.user-name
+        ryo
+        -# = @user.nickname
+      .mypage-number
+        .evaluation
+          評価
+          %span.bold<
+            8
+        .exhibition
+          出品
+          %span.bold<
+            8
+  %section.mypage-tab-container__notification-todo
+    %ul.mypage-tabs
+      %li.notification
+        お知らせ
+      %li.todo
+        やることリスト
+    .tab-contents
+      %ul.mypage-tab-notification__todo
+        %li.mypage-tab-notification__not-found 現在、やることリストはありません
+      %ul.mypage-tab-notification__items
+        %li
+
+
+
+
+    
