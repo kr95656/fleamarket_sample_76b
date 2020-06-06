@@ -1,9 +1,98 @@
 .side-bar
-  %nav
-    %ul
+  %nav.mypage-nav
+    %ul.mypage-nav__menu
+      %li.mypage-nav__menu--list
+        =link_to "#", class: "mypage-nav__menu--list__item" do
+          マイページ
+          %i.fas.fa-caret-right
       %li
-        %a(href="#") 
-          test1
+        =link_to "#", class: "mypage-nav__menu--list__item" do
+          お知らせ  
+          %i.fas.fa-caret-right
       %li
-        %a(href="#") 
-          test2
+        =link_to "#", class: "mypage-nav__menu--list__item" do
+          やることリスト
+          %i.fas.fa-caret-right
+      %li
+        =link_to "#", class: "mypage-nav__menu--list__item" do
+          いいね！一覧
+          %i.fas.fa-caret-right
+      %li
+        =link_to "#", class: "mypage-nav__menu--list__item" do
+          出品する    
+          %i.fas.fa-caret-right
+      %li
+        =link_to "#", class: "mypage-nav__menu--list__item" do
+          下書き一覧
+          %i.fas.fa-caret-right 
+      %li
+        =link_to "#", class: "mypage-nav__menu--list__item" do
+          出品した商品 - 出品中
+          %i.fas.fa-caret-right
+      %li
+        =link_to "#", class: "mypage-nav__menu--list__item" do
+          出品した商品 - 取引中
+          %i.fas.fa-caret-right
+      %li
+        =link_to "#", class: "mypage-nav__menu--list__item" do
+          出品した商品 - 売却済み   
+          %i.fas.fa-caret-right
+      %li
+        =link_to "#", class: "mypage-nav__menu--list__item" do
+          購入した商品 - 取引中  
+          %i.fas.fa-caret-right
+      %li
+        =link_to "#", class: "mypage-nav__menu--list__item" do
+          購入した商品 - 過去の取引  
+          %i.fas.fa-caret-right
+      %li
+        =link_to "#", class: "mypage-nav__menu--list__item" do
+          ニュース一覧 
+          %i.fas.fa-caret-right
+      %li
+        =link_to "#", class: "mypage-nav__menu--list__item" do
+          評価一覧  
+          %i.fas.fa-caret-right
+      %li
+        =link_to "#", class: "mypage-nav__menu--list__item" do
+          ガイド  
+          %i.fas.fa-caret-right
+      %li
+        =link_to "#", class: "mypage-nav__menu--list__item" do
+          お問い合わせ  
+          %i.fas.fa-caret-right
+    %h3.mypage-nav__head-setting 設定
+    %ul.mypage-nav__menu
+      %li.mypage-nav__menu--list
+        =link_to "#", class: "mypage-nav__menu--list__setting-item" do
+          プロフィール
+          %i.fas.fa-caret-right
+      %li.mypage-nav__menu--list
+        =link_to "#", class: "mypage-nav__menu--list__setting-item" do
+          発送元・お届け先住所変更    
+          %i.fas.fa-caret-right
+      %li.mypage-nav__menu--list
+        =link_to "#", class: "mypage-nav__menu--list__setting-item" do
+          支払い方法  
+          %i.fas.fa-caret-right
+      -# %li.mypage-nav__menu--list
+      -#   =link_to user_cards_path(current_user.id), class: "mypage-nav__menu--list__setting-item" do
+      -#     支払い方法  
+      -#     %i.fas.fa-caret-right
+      %li.mypage-nav__menu--list
+        =link_to "#", class: "mypage-nav__menu--list__setting-item" do
+          メール/パスワード  
+          %i.fas.fa-caret-right
+      %li.mypage-nav__menu--list
+        =link_to "#", class: "mypage-nav__menu--list__setting-item" do
+          本人情報
+          %i.fas.fa-caret-right
+      %li.mypage-nav__menu--list
+        =link_to "#", class: "mypage-nav__menu--list__setting-item" do
+          電話番号の確認  
+          %i.fas.fa-caret-right
+      %li.mypage-nav__menu--list
+        =link_to "edit_user_path", method: :delete, class: "mypage-nav__menu--list__setting-item" do
+          ログアウト 
+          %i.fas.fa-caret-right
+
