@@ -1,8 +1,11 @@
 .wrapper
   .header
     = render partial: 'top/header'
+  .user-mypage__wrapper
+    = render partial: 'users/user-mypage__side-bar'
+    = render partial: 'users/user-mypage__main-contents'
   .main__section5
-    = render partial: 'top/section5
+    = render partial: 'top/section5'
   .footer
     = render partial: 'top/footer'
   = link_to root_path, class: "purchage__send" do
