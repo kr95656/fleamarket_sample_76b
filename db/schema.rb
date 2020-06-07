@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 2020_06_07_082133) do
     t.string "birth_month", null: false
     t.string "birth_day", null: false
     t.bigint "user_id", null: false
+ActiveRecord::Schema.define(version: 2020_06_07_083523) do
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
