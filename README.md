@@ -34,7 +34,7 @@ Things you may want to cover:
 
 ### Association
 - has_one :profile,dependent: :destroy
-- has_one :sending_destination, dependent: :destroy
+- has_one :shipping_destination, dependent: :destroy
 - has_one :credit_card, dependent: :destroy
 - has_many :items, dependent: :destroy
 
@@ -50,8 +50,6 @@ Things you may want to cover:
 |birth_year|string|null: false|
 |birth_month|string|null: false|
 |birth_day|string|null: false|
-|introduction|text|
-|image|string|
 |user|reference|null: false, foreign_key: true|
 
 
@@ -63,7 +61,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false|
+|name|string|null: false|
 |introduction|text|null: false|
 |category|reference|null: false, foreign_key:|
 |brand|reference|foreign_key: true|
