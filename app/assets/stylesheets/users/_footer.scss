@@ -1,0 +1,25 @@
+@mixin footer {
+  .footer {
+    text-align: center;
+    height: 150px;
+    background-color: #272727;
+    padding-top: 25px;
+
+    &__terms a {
+      font-size: 12px;
+      text-decoration: none;
+      color: #ffffff;
+      margin: 0 10px;
+    }
+
+    &__logo {
+      margin-top: 20px;
+    }
+
+    &__copyright {
+      color: #ffffff;
+      font-size: 12px;
+    }
+
+  }
+}
