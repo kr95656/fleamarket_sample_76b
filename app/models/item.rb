@@ -8,6 +8,7 @@ class Item < ApplicationRecord
   validates :price, numericality: { less_than_or_equal_to: 9999999, greater_than_or_equal_to: 300 }
   validates :category_id, :item_condition_id, :shipping_day_id, :shipping_prefecture_id,  :name, :introduction, :postage_payer_id, :price, presence: true
   validates :images, presence: true
+  
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :item_condition
   belongs_to_active_hash :postage_payer
