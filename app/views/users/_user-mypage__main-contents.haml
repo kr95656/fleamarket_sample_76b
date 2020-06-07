@@ -1,0 +1,45 @@
+.main-contents
+  %section.mypage-user-icon
+    = link_to "#", class: "mypage-user-icon__container" do
+      %figure
+        = image_tag "member_photo_noimage_thumb.png", class: "user-icon", size: "60x60"
+      %h2.user-name
+        ryo
+        -# = @user.nickname
+      .mypage-number
+        .evaluation
+          評価
+          %span.bold<
+            8
+        .exhibition
+          出品
+          %span.bold<
+            8
+  %section.mypage-tab-container__notification-todo
+    %ul.mypage-tabs
+      %li.notification
+        お知らせ
+      %li.todo
+        やることリスト
+    .tab-contents
+      %ul.tab-contents--notification__todo
+        %li.tab-contents--notification__todo__not-found 現在、やることリストはありません
+      %ul.tab-contents--notification__items
+        %li
+  %section.mypage-transaction
+    %h2.mypage-transaction__head 購入した商品
+    %ul.mypage-transaction__tabs
+      %li.just-trading
+        取引中
+      %li.trade-history
+        過去の取引
+    .tab-contents--transaction
+      %ul.tab-contents--transaction__now
+        %li.tab-contents--transaction__now__not-found 取引中の商品がありません
+      %ul.tab-contents--transaction__past
+        %li
+
+
+
+
+    

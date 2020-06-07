@@ -1,0 +1,65 @@
+@mixin header {
+  .header {
+    width: 1040px;
+    margin: 0 auto;
+    height: 110px;
+    padding: 15px 0;
+    margin-top: 5px;
+
+    &__top {
+      display: flex;
+
+      a {
+        .header__top__img {
+          display: block;
+          margin-right: 20px;
+        }
+      }
+
+      &__form {
+        display: flex;
+        width: 100%;
+
+        &--text_box {
+          height: 35px;
+          width: 100%;
+          padding: 0 5px;
+        }
+
+        &--btn {
+          height: 35px;
+          width: 35px;
+          background-color: #3ccace;
+          border: none;
+
+          i {
+            font-size: 20px;
+            line-height: 35px;
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    &__bottom {
+      height: 50px;
+      line-height: 50px;
+      width: 100%;
+
+      ul {
+        display: flex;
+        justify-content: space-around;
+
+        li {
+          font-size: 14px;
+          font-weight: bold;
+          padding: 0 15px;
+
+          i {
+            color: #3ccace;
+          }
+        }
+      }
+    }
+  }
+}
