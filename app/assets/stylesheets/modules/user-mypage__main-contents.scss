@@ -15,15 +15,15 @@
 }
 
 @mixin not-found-data {
-  background:           url("logo.png");
-  background-repeat: no-repeat;
+  padding:             160px 0 60px;
+  font-size:           16px;
+  font-weight:         600;
+  background:          url("logo.png");
+  background-size:     100px 50px;
   background-position: center 60px;
-  background-size: 100px 50px;
-  padding: 160px 0 60px;
-  text-align: center;
-  font-size: 16px;
-  color: #ccc;
-  font-weight: 600;
+  background-repeat:   no-repeat;
+  text-align:          center;
+  color:               #ccc;
 
 }
 
