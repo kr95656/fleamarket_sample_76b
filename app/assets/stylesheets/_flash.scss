@@ -1,0 +1,20 @@
+.notification {
+  .notice {
+    background-color: #38AEF0;
+    color: white;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    z-index: 200;
+  }
+
+  .alert {
+    background-color: #F35500;
+    color: white;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    margin: 0;
+    padding: 0;
+  }
+}
