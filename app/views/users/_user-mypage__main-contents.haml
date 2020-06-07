@@ -1,6 +1,6 @@
 .main-contents
   %section.mypage-user-icon
-    %a(href="#"){class:"mypage-user-icon__container"}
+    = link_to "#", class: "mypage-user-icon__container" do
       %figure
         = image_tag "member_photo_noimage_thumb.png", class: "user-icon", size: "60x60"
       %h2.user-name
