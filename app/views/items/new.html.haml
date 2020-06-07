@@ -4,6 +4,7 @@
       = f.fields_for :images do |image|
         .js-file_group{"data-index" => "#{image.index}"}
           = image.file_field :url, class: 'js-file'
+    = f.hidden_field :trading_status, value: "販売中"
     商品名
     = f.text_field :name, placeholder: "40字まで"
     説明
