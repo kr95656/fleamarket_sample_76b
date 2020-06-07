@@ -18,11 +18,9 @@
     = f.collection_select :postage_payer_id, PostagePayer.all, :id, :name, {prompt: "選択してください"}
     発送元
     = f.collection_select :shipping_prefecture_id, ShippingPrefecture.all, :id, :name, {prompt: "選択してください"}
-    -# 発送日
-    -# = f.collection_select :shipping_day_id, ShippingDay.all, :id, :name, {prompt: "選択してください"}
-    -# 値段
-    -# = f.text_field :price, placeholder: "0"
-      
-    -# 名前
-    -# = f.text_field :user, class:"item__form__name", placeholder: "40字まで"
+    発送日
+    = f.collection_select :shipping_day_id, ShippingDay.all, :id, :name, {prompt: "選択してください"}
+    値段
+    = f.text_field :price, placeholder: "0"
+    
     = f.submit "出品する"
