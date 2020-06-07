@@ -7,17 +7,18 @@
       - @items.each do |item|
         .new__item__list
           = link_to "#" do
-            =image_tag 'icon-03.png',class: "new__item__image"
-            .new__item__info
-              %h3.new__item__name=item.name
-              .new__item__value
-                %ul
-                  %li=item.price
-                  %h4 円
-                  %li
-                    %icon.fa.fa-star
-                      0
-                %p (税込)
+            - item.images.each do |image|
+              =image_tag image.url,class: "new__item__image" 
+              .new__item__info
+                %h3.new__item__name=item.name
+                .new__item__value
+                  %ul
+                    %li=item.price
+                    %h4 円
+                    %li
+                      %icon.fa.fa-star
+                        0
+                  %p (税込)
       
 .section__pickup
   %h2.section__pickup__title ピックアップブランド
