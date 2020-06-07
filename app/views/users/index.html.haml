@@ -10,4 +10,4 @@
     = render partial: 'top/footer'
   = link_to root_path, class: "purchage__send" do
     %p 出品する
-    %img.camera__image{:alt => "", :src => "assets/icon_camera.png"}1
+    = image_tag "icon_camera.png", alt: "", class: "camera__image"
