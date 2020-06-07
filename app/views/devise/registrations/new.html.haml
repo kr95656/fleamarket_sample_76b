@@ -1,0 +1,41 @@
+.signupBody 
+  = render partial: 'header'
+  
+  .signupWrapper
+    .signupWrapper__head
+      %h2 ユーザ情報入力
+    .signupWrapper__content
+      = form_for(@user, url: user_registration_path) do |f|
+        = render "devise/shared/error_messages", resource: @user
+        
+        .signupWrapper__content__formGroup
+          = f.label :ニックネーム, class: 'signupWrapper__content__formGroup__label'
+          %span.signupWrapper__content__formGroup__label--must 必須
+          %br/
+          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: 'signupWrapper__content__formGroup__form', placeholder: '例) フリマ太郎'
+        
+        .signupWrapper__content__formGroup
+          = f.label :メールアドレス, class: 'signupWrapper__content__formGroup__label'
+          %span.signupWrapper__content__formGroup__label--must 必須
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'signupWrapper__content__formGroup__form', placeholder: 'PC・携帯どちらでも可'
+        
+        .signupWrapper__content__formGroup
+          = f.label :パスワード, class: 'signupWrapper__content__formGroup__label'
+          - if @minimum_password_length
+            %span.signupWrapper__content__formGroup__label--must 必須
+          %br/
+          = f.password_field :password, autocomplete: "new-password", class: 'signupWrapper__content__formGroup__form', placeholder: '７文字以上の半角英数字'
+        
+        .signupWrapper__content__formGroup
+          = f.label :パスワードの確認, class: 'signupWrapper__content__formGroup__label'
+          %span.signupWrapper__content__formGroup__label--must 必須
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: 'signupWrapper__content__formGroup__form', placeholder: '上記と同じパスワードを入力してください'
+        
+
+        
+        .signupWrapper__content__submit
+          = f.submit "本人確認情報入力へ進む" ,class: 'signupWrapper__content__submit__btn'
+
+  = render partial: 'footer'

@@ -1,0 +1,27 @@
+.signinBody 
+  = render partial: 'header'
+
+  .signinWrapper
+    .signinWrapper__head
+      %h2 ユーザ情報入力
+    .signinWrapper__content
+      = form_for(@user, url: user_registration_path) do |f|
+        = render "devise/shared/error_messages", resource: @user
+                
+        .signinWrapper__content__formGroup
+          = f.label :メールアドレス, class: 'signinWrapper__content__formGroup__label'
+          %span.signinWrapper__content__formGroup__label--must 必須
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'signinWrapper__content__formGroup__form'
+        
+        .signinWrapper__content__formGroup
+          = f.label :パスワード, class: 'signinWrapper__content__formGroup__label'
+          %span.signinWrapper__content__formGroup__label--must 必須
+          %br/
+          = f.password_field :password, autocomplete: "new-password", class: 'signinWrapper__content__formGroup__form'
+                
+        .signinWrapper__content__submit
+          = f.submit "ログインする" ,class: 'signinWrapper__content__submit__btn'
+
+  = render partial: 'footer'
+  
