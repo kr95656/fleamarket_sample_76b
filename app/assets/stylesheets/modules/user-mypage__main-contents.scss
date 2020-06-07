@@ -1,6 +1,5 @@
 .main-contents {
-  text-align: center;
-  background-color: #3CCACE;
+  // text-align: center;
   width: 100%;
   height: 100%;
   
@@ -10,7 +9,7 @@
     padding: 40px 20px;
     width: 700px;
     height: 200px;
-    
+    background-color: #3CCACE;
 
     &__container {
       display: block;
@@ -123,4 +122,63 @@
     }
   }
   
+  .mypage-transaction {
+    width: 700px;
+    height: 382px;
+    margin: 40px 0 0 0;
+    background-color: #fff;
+
+    &__head {
+      padding: 0 16px;
+      width: 100%;
+      height: 72px;
+      line-height: 72px;
+      background: #fafafa;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    &__tabs {
+      display: flex;
+      height: 74px;
+      width: 100%;
+      > li {
+        height: 100%;
+        width: 50%;
+        display: block;
+        font-size: 16px;
+        line-height: 74px;
+        text-align: center;
+        font-weight: bold;
+      }
+      .just-trading {
+
+      }
+      .trade-history {
+        background-color: #eee;
+
+      }
+    }
+    .tab-contents--transaction {
+      &__now {
+       
+        &__not-found {
+          font-weight: 600;
+          padding: 160px 0 60px;
+          background: url("logo.png");
+          background-repeat: no-repeat;
+          background-position: 300px 50px;
+          // background-position: center 50px;
+          background-size: 100px 60px;
+          // background-size: 300px 95px;
+          text-align: center;
+          font-size: 16px;
+          color: #ccc;
+
+        }
+      }
+      &__past {
+
+      }
+    }
+  }
 }
