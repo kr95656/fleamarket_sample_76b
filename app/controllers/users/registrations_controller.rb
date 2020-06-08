@@ -22,15 +22,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_profile
   end
 
+  def new_profile
+    @profile = Profile.new
+  end
+
+
   def create_profile
     @user = User.new(session["devise.regist_data"]["user"])
-    @profile = Identification.new(profile_params)
+    @profile = Profile.new(profile_params)
     unless @profile.valid?
       flash.now[:alert] = @profile.errors.full_messages
       render :new_profile and return
     end
     @user.build_profile(@profile.attributes)
-    session["identification"] = @profile.attributes
+    session["profile"] = @profile.attributes
     @shipping_destination = @user.build_shipping_destination
     render :new_shipping_destination
   end
@@ -77,8 +82,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :first_name_kana, :first_name_kana, :last_name_kana :birth_year,:birth_month,:birth_day)
+    params.require(:profile).permit(:first_name, :last_name, :first_name_kana, :last_name_kana,:birth_year,:birth_month,:birth_day)
   end
+
+
 
   def shipping_destination_params
     params.require(:shipping_destination_).permit(:destination_first_name, :destination_last_name, :destination_first_name_kana, :destination_last_name_kana, :post_code, :prefecture_code, :city, :address, :building, :phone_number)

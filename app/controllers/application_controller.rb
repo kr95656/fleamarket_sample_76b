@@ -20,13 +20,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def after_sign_in_path_for(resource)
-    if current_user.address.present?
-      root_path
-    else
-      step2_signup_index_path
-    end
-  end
+  # def after_sign_in_path_for(resource)
+  #   if current_user.shipping_destination.present?
+  #     root_path
+  #   else
+  #     step2_signup_index_path
+  #   end
+  # end
 
   def request_path
     @path = controller_path + '#' + action_name
@@ -35,5 +35,5 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  protect_from_forgery with: :null_session
+#   protect_from_forgery with: :null_session
 end
