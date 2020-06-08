@@ -26,15 +26,10 @@
           = f.label :生年月日, class: 'signupWrapper__content__formGroup__label'
           %span.signupWrapper__content__formGroup__label--must 必須
           %br/
-          != sprintf(f.date_select(:birthday, use_month_numbers: true, start_year:1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1), date_separator: '%s'), '年', '月')+'日'
-
-        .signupWrapper__content__formGroup
-          = f.label :プロフィール文, class: 'signupWrapper__content__formGroup__label'
-          %span.signupWrapper__content__formGroup__label--optional 任意
-          %br/
-          = f.text_area :introduction, cols:40, rows:10, autofocus: true, autocomplete: "introduction", class: 'signupWrapper__content__formGroup__form--half', placeholder: '例) ふりま'
+          != sprintf(f.date_select(:birth_day, use_month_numbers: true, start_year:1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1), date_separator: '%s'), '年', '月')+'日'
 
         .signupWrapper__content__submit
           = f.submit "商品送付先住所情報入力へ進む" ,class: 'signupWrapper__content__submit__btn'
           
   = render partial: 'footer'
+  
