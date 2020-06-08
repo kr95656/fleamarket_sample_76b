@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :configure_sign_up_params, only: [:create]
+  # before_action :configure_sign_up_params, only: [:create]
+  # before_action :configure_account_update_params, only: [:update]
 
+  # GET /resource/sign_up
   def new
     @user = User.new
   end
 
+  # POST /resource
   def create
     @user = User.new(sign_up_params)
     unless @user.valid?
@@ -15,33 +18,89 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
-    @destination = @user.build_destination
-    render :new_destination
+    @profile = @user.build_profile
+    render :new_profile
   end
 
-  def create_destination
+  def create_profile
     @user = User.new(session["devise.regist_data"]["user"])
-    @destination = Destination.new(destination_params)
-    unless @destination.valid?
-      flash.now[:alert] = @destination.errors.full_messages
-      render :new_destination and return
+    @profile = Identification.new(profile_params)
+    unless @profile.valid?
+      flash.now[:alert] = @profile.errors.full_messages
+      render :new_profile and return
     end
-    @user.build_destination(@destination.attributes)
+    @user.build_profile(@profile.attributes)
+    session["identification"] = @profile.attributes
+    @shipping_destination = @user.build_shipping_destination
+    render :new_shipping_destination
+  end
+
+  def create_shipping_destination
+    @user = User.new(session["devise.regist_data"]["user"])
+    @profile = Profile.new(session["profile"])
+    @shipping_destination = Shipping_destination.new(deliveryAddress_params)
+    unless @shipping_destination.valid?
+      flash.now[:alert] = @Shipping_destination.errors.full_messages
+      render :new_shipping_destination and return
+    end
+    @user.build_profile(@profile.attributes)
+    @user.build_shipping_destination(@shipping_destination.attributes)
     @user.save
-    session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
   end
 
 
+  # GET /resource/edit
+  # def edit
+  #   super
+  # end
+
+  # PUT /resource
+  # def update
+  #   super
+  # end
+
+  # DELETE /resource
+  # def destroy
+  #   super
+  # end
+
+  # GET /resource/cancel
+  # Forces the session data which is usually expired after sign
+  # in to be expired now. This is useful if the user wants to
+  # cancel oauth signing in/up in the middle of the process,
+  # removing all OAuth session data.
+  # def cancel
+  #   super
+  # end
 
   protected
 
-  def destination_params
-    params.require(:destination).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :post_code, :prefecture_code, :city, :house_number, :building_name, :phone_number)
+  def profile_params
+    params.require(:profile).permit(:first_name, :last_name, :first_name_kana, :first_name_kana, :last_name_kana :birth_year,:birth_month,:birth_day)
   end
 
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+  def shipping_destination_params
+    params.require(:shipping_destination_).permit(:destination_first_name, :destination_last_name, :destination_first_name_kana, :destination_last_name_kana, :post_code, :prefecture_code, :city, :address, :building, :phone_number)
   end
 
+  # If you have extra params to permit, append them to the sanitizer.
+  # def configure_sign_up_params
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+  # end
+
+  # If you have extra params to permit, append them to the sanitizer.
+  # def configure_account_update_params
+  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+  # end
+
+  # The path used after sign up.
+  # def after_sign_up_path_for(resource)
+  #   super(resource)
+  # end
+
+  # The path used after sign up for inactive accounts.
+  # def after_inactive_sign_up_path_for(resource)
+  #   super(resource)
+  # end
 end
