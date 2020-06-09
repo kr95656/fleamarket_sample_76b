@@ -1,0 +1,63 @@
+.new__header{
+  background-color: palegreen;
+  img {
+    margin: 0 auto;
+  }
+}
+.post__new__wrapper{
+  h1 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  p{
+    display: inline-block;
+  }
+  span{
+    background: #ea352d;
+    display: inline-block;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+  }
+  #image-box{
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: 48px;
+    margin: 0;
+    outline: none;
+    padding: 0 16px;
+  }
+  .sell-content{
+    padding: 40px;
+    border-top: 1px solid #eee;
+    &__introduce{
+      margin-top: 20px;
+    }
+  }
+  .detail-content{
+    padding: 40px;
+    border-top: 1px solid #eee;
+    &__brand{
+      span{
+        background: #bfbfbf;
+      }
+    }
+  }
+  .delivery-content{
+    padding: 40px;
+    border-top: 1px solid #eee;
+  }
+  .price{
+    &__l-left{
+      display: inline;
+    }
+  }
+}

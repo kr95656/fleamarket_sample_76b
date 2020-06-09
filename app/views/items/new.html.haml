@@ -1,32 +1,80 @@
+.new__header
+  =  link_to image_tag('logo.png', size: "140x41"), root_path
 = form_with model: @item do |f|
   .post__new__wrapper
     - @item.errors.full_messages.each do |message|
       .form-error
         = message
+    %h1 商品の情報を入力
     #image-box
+      %p 商品画像 
+      %span.product-require
+        必須
       = f.fields_for :images do |image|
         .js-file_group{"data-index" => "#{image.index}"}
           = image.file_field :src, class: 'js-file'
-
     = f.hidden_field :trading_status, value: "販売中"
-    商品名
-    = f.text_field :name, placeholder: "40字まで"
-    説明
-    = f.text_area :introduction, placeholder: "商品の説明(必須1,000文字以内)"
-    カテゴリー
-    = f.collection_select :category_id, Category.all, :id, :name,{prompt: "選択してください"}
-    ブランド
-    = f.text_field :brand, placeholder: "例) シャネル"
-    コンディション
-    = f.collection_select :item_condition_id, ItemCondition.all, :id, :name, {prompt: "選択してください"}
-    発送負担
-    = f.collection_select :postage_payer_id, PostagePayer.all, :id, :name, {prompt: "選択してください"}
-    発送元
-    = f.collection_select :shipping_prefecture_id, ShippingPrefecture.all, :id, :name, {prompt: "選択してください"}
-    発送日
-    = f.collection_select :shipping_day_id, ShippingDay.all, :id, :name, {prompt: "選択してください"}
-    値段
-    = f.text_field :price, placeholder: "0"
+    .sell-content
+      .sell-content__name
+        %label.sell-content__name__label
+          商品名
+          %span.product-name__require
+            必須
+      = f.text_field :name, placeholder: "40字まで"
+      .sell-conent___introduce
+        %label.sell-content__introduce__label
+          商品の説明
+          %span.product-introduce__require
+            必須
+      = f.text_area :introduction, placeholder: "商品の説明(必須1,000文字以内)"
+
+    .detail-content
+      .detail-content__category
+        %label.detail-content__category__label
+          カテゴリー
+          %span.detail-content__category__require
+            必須
+      = f.collection_select :category_id, Category.all, :id, :name,{prompt: "選択してください"}
+      .detail-content__brand
+        %label.detail-content__brand__label
+          ブランド
+          %span.detail-content__brand__require
+            任意
+      = f.text_field :brand, placeholder: "例) シャネル"
+      .detail-content__condition
+        %label.detail-content__condition__label
+          商品の状態
+          %span.detail-content__condition__require
+            必須
+      = f.collection_select :item_condition_id, ItemCondition.all, :id, :name, {prompt: "選択してください"}
+
+    .delivery-content
+      .delivery-content__chage
+        %label.delivery-content__chage__label
+          配送料の負担
+          %span.delivery-content__chage__require
+            必須
+      = f.collection_select :postage_payer_id, PostagePayer.all, :id, :name, {prompt: "選択してください"}
+      .delivery-content__area
+        %label.delivery-content__area__label
+          発送元の地域
+          %span.delivery-content__area__require
+            必須
+      = f.collection_select :shipping_prefecture_id, ShippingPrefecture.all, :id, :name, {prompt: "選択してください"}
+      .delivery-content__days
+        %label.delivery-content__days__label
+          発送までの日数
+          %span.delivery-content__days__require
+            必須
+      = f.collection_select :shipping_day_id, ShippingDay.all, :id, :name, {prompt: "選択してください"}
+    .price
+      %label.price__l-left
+        値段
+        %span.price__require
+          必須
+      %label.price__mark
+        ¥
+      = f.text_field :price, placeholder: "0"
     
     = f.submit "出品する"
     
