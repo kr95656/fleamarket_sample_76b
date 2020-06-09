@@ -46,9 +46,9 @@ Things you may want to cover:
 |last_name|string|null: false|
 |first_name_kana|string|null: false|
 |last_name_kana|string|null: false|
-|birth_year|string|null: false|
-|birth_month|string|null: false|
-|birth_day|string|null: false|
+|birth_year|date|null: false|
+|birth_month|date|null: false|
+|birth_day|date|null: false|
 |user|reference|null: false, foreign_key: true|
 
 
