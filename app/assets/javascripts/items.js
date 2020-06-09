@@ -3,8 +3,8 @@ $(document).on('turbolinks:load', ()=> {
   const buildFileField = (index)=> {
     const html = `<div data-index="${index}" class="js-file_group">
                     <input class="js-file" type="file"
-                    name="item[images_attributes][${index}][src]"
-                    id="item_images_attributes_${index}_src"><br>
+                    name="item[images_attributes][${index}][url]"
+                    id="item_images_attributes_${index}_url"><br>
                   </div>`;
     return html;
   }
