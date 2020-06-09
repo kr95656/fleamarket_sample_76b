@@ -6,7 +6,7 @@
     #image-box
       = f.fields_for :images do |image|
         .js-file_group{"data-index" => "#{image.index}"}
-          = image.file_field :url, class: 'js-file'
+          = image.file_field :src, class: 'js-file'
 
     = f.hidden_field :trading_status, value: "販売中"
     商品名

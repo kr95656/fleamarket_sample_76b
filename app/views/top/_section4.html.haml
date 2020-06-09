@@ -8,7 +8,7 @@
         .new__item__list
           = link_to "#" do
             - item.images.each do |image|
-              =image_tag image.url.url ,class: "new__item__image"
+              =image_tag image.src.url ,class: "new__item__image"
                 -# 売り切れた商品にはsoldを表示する条件分岐 
                 -if item.trading_status == "完売"
                 .new__item__image__sold
