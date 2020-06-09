@@ -26,11 +26,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @profile = Profile.new
   end
 
-
   def create_profile
     @user = User.new(session["devise.regist_data"]["user"])
     @profile = Profile.new(profile_params)
     unless @profile.valid?
+      binding.pry
       flash.now[:alert] = @profile.errors.full_messages
       render :new_profile and return
     end
