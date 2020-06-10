@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index, :new, :create, :edit, :upadate]
+  before_action :move_to_index, except: [:index, :new, :create, :edit, :update]
   def index
     @items = Item.all.order(created_at: "DESC").limit(3)
   end
@@ -10,17 +10,17 @@ class ItemsController < ApplicationController
   end
 
   def show
-
+    @item = Item.find(params[:id])
   end
 
-  def edit
+  def edit 
     @item = Item.find(params[:id])
   end
 
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
-    if @post.save
+    if @item.save
     flash[:notice] = "編集完了しました"
     redirect_to root_path
     else
@@ -43,7 +43,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :introduction, :category_id, :brand, :item_condition_id, :postage_payer_id, :shipping_prefecture_id, :shipping_day_id, :price, :trading_status, images_attributes: [:url])
+    params.require(:item).permit(:name, :introduction, :category_id, :brand, :item_condition_id, :postage_payer_id, :shipping_prefecture_id, :shipping_day_id, :price, :trading_status, images_attributes: [:url, :_destroy, :id])
   end
 
   #ログインしていなくても一覧表示する
