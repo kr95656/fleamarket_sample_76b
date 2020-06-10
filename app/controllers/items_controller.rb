@@ -9,6 +9,24 @@ class ItemsController < ApplicationController
     @item.images.new
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    if @post.save
+    flash[:notice] = "編集完了しました"
+    redirect_to root_path
+    else
+      flash.now[:alert] = "編集に失敗しました"
+      render ("items/edit")
+    end
+  end
+
+
+
   def create
     @item = Item.create(item_params)
     if @item.save
