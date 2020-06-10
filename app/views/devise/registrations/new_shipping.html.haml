@@ -32,7 +32,7 @@
           = f.label :都道府県, class: 'signupWrapper__content__formGroup__label'
           %span.signupWrapper__content__formGroup__label--must 必須
           %br/
-          = f.collection_select :prefecture_code, Prefecture_code.all, :id, :name, prompt: "選択してください"
+          = f.collection_select :prefecture_code, Prefecture.all, :id, :name, prompt: "選択してください"
 
         .signupWrapper__content__formGroup
           = f.label :市区町村, class: 'signupWrapper__content__formGroup__label'

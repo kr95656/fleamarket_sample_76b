@@ -40,9 +40,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_shipping_destination
+    binding.pry
     @user = User.new(session["devise.regist_data"]["user"])
     @profile = Profile.new(session["profile"])
-    @shipping_destination = Shipping_destination.new(deliveryAddress_params)
+    @shipping_destination = ShippingDestination.new(shipping_destination_params)
     if @shipping_destination.valid?
       flash.now[:alert] = @Shipping_destination.errors.full_messages
       render :new_shipping  
@@ -85,9 +86,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
 
-
   def shipping_destination_params
-    params.require(:shipping_destination_).permit(:destination_first_name, :destination_last_name, :destination_first_name_kana, :destination_last_name_kana, :post_code, :prefecture_code, :city, :address, :building, :phone_number)
+    params.require(:shipping_destination).permit(:destination_first_name, :destination_last_name, :destination_first_name_kana, :destination_last_name_kana, :post_code, :prefecture_code, :city, :address, :building, :phone_number)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
