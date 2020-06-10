@@ -7,16 +7,28 @@
         - @item.errors.full_messages.each do |message|
           .form-error
             = message
-        .main-content__head
-          商品の情報を入力
-        #image-box
-          %p 商品画像 
-          %span.product-require
-            必須
-          = f.fields_for :images do |image|
-            .js-file_group{"data-index" => "#{image.index}"}
-              = image.file_field :src, class: 'js-file'
-        = f.hidden_field :trading_status, value: "販売中"
+        .main-content__image
+          #image-box
+            %label.sell-content__image__label
+              商品画像 
+            %span.product-require
+              必須
+            .main-content__image__introduce
+              最大5枚までアップロードできます
+            .post__drop__box__container
+              .prev-content
+              .label-content
+                %label{for: "item_images_attributes_0_src", class: "label-box", id: "label-box--0"}
+                  %pre.label-box__text-visible クリックしてファイルをアップロード
+              .hidden-content
+                = f.fields_for :images do |image|
+                  = image.file_field :src, class: 'hidden-field'
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][src]", id: "item_images_attributes_1_src" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][src]", id: "item_images_attributes_2_src" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][src]", id: "item_images_attributes_3_src" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][src]", id: "item_images_attributes_4_src" }          
+          = f.hidden_field :trading_status, value: "販売中"
+        
         .sell-content
           .sell-content__name
             %label.sell-content__name__label
