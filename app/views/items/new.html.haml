@@ -94,7 +94,7 @@
             = f.text_field :price, placeholder: "0"
         .send 
           .send__btn
-            = f.submit "出品する"
+            = f.submit "出品する",onfocus: "this.blur();"
   .footer
     .footer__logo--white
       = image_tag 'logo-white.png', size: '140x41'

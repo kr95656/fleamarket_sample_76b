@@ -33,7 +33,7 @@ $(document).on('turbolinks:load', function(){
       //hidden-fieldのidの数値のみ取得
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       //labelボックスのidとforを更新
-      $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+      $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_src`});
       //選択したfileのオブジェクトを取得
       var file = this.files[0];
       var reader = new FileReader();
