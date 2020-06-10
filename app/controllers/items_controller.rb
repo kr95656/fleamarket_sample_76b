@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index, :new, :create]
+  before_action :move_to_index, except: [:index, :new, :create, :edit, :upadate]
   def index
     @items = Item.all.order(created_at: "DESC").limit(3)
   end
