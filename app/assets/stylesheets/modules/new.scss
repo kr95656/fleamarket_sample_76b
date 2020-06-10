@@ -5,6 +5,8 @@
   }
 }
 .post__new__wrapper{
+  width: 80%;
+  background-color: palevioletred;
   h1 {
     font-size: 20px;
     font-weight: bold;
@@ -58,6 +60,28 @@
   .price{
     &__l-left{
       display: inline;
+    }
+  }
+  .send {
+    padding-top: 50px;
+    text-align: center;
+    line-height: 50px;
+    input{
+      border: none;
+      background: none;
+    }
+    &__btn {
+      font-size: 1.3em;
+      border-radius: 5px;
+      padding: 0.3em 3.4em;
+      position: relative;
+      transition: all 700ms ease;
+      transition-duration: 0.3s;
+      width: 390px;
+      background: #3CCACE;
+      &:hover{
+
+      }
     }
   }
 }
