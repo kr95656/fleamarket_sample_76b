@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index, :new, :create]
+  before_action :move_to_index, except: [:index, :new, :create, :show]
   def index
     @items = Item.all.order(created_at: "DESC").limit(3)
   end
@@ -18,6 +18,10 @@ class ItemsController < ApplicationController
       flash.now[:alert] = "投稿に失敗しました"
       render ("items/new")
     end
+  end
+
+  def show
+    
   end
 
   def item_params
