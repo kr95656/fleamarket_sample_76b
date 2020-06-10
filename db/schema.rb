@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2020_06_09_012901) do
     t.string "last_name", null: false
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
-    t.string "birth_year", null: false
-    t.string "birth_month", null: false
+    t.date "birth_year", null: false
+    t.date "birth_month", null: false
     t.date "birth_day", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_012901) do
     t.string "destination_first_name", null: false
     t.string "destination_last_name", null: false
     t.string "destination_first_name_kana", null: false
+    t.string "destination_last_name_kana", null: false
     t.integer "post_code", null: false
     t.integer "prefecture_code", null: false
     t.string "city", null: false
