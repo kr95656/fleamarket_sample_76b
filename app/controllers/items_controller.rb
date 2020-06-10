@@ -15,14 +15,18 @@ class ItemsController < ApplicationController
 
   def edit 
     @item = Item.find(params[:id])
+    unless @item.user.id == current_user.id 
+      redirect_to posts_path
+      flash[:alert] = "権限がありません"
+    end
   end
 
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
     if @item.save
-    flash[:notice] = "編集完了しました"
-    redirect_to root_path
+      flash[:notice] = "編集完了しました"
+      redirect_to root_path
     else
       flash.now[:alert] = "編集に失敗しました"
       render ("items/edit")
