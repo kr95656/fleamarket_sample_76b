@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :new, :create, :show]
+  before_action :set_item, only: [:show]
   def index
     @items = Item.all.order(created_at: "DESC").limit(3)
   end
@@ -21,7 +22,22 @@ class ItemsController < ApplicationController
   end
 
   def show
+    # @post_item_user = @item.user
+    @category = Category.find(@item.category_id)
+    # area = ShippingPrefecture.all.pluck(:name)
+    # @area = @item.area
+    # condition = ItemCondition.all.pluck(:name)
     
+    condition = ItemCondition.find(@item.item_condition_id)
+    @condition = condition.name
+    
+    postage_payer =  PostagePayer.find(@item.postage_payer_id)
+    @postage_payer = postage_payer.name
+    
+    shipping_day = ShippingDay.find(@item.shipping_day_id)
+    @shipping_day = shipping_day.name
+    
+ 
   end
 
   def item_params
@@ -32,4 +48,9 @@ class ItemsController < ApplicationController
   def move_to_index
     redirect_to action: :index unless user_signed_in?
   end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
 end
