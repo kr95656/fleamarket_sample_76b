@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :new, :create, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update]
   def index
     @items = Item.all.order(created_at: "DESC").limit(3)
   end
@@ -10,11 +11,10 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+
   end
 
   def edit 
-    @item = Item.find(params[:id])
     unless @item.user.id == current_user.id 
       redirect_to posts_path
       flash[:alert] = "権限がありません"
@@ -22,7 +22,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
     @item.update(item_params)
     if @item.save
       flash[:notice] = "編集完了しました"
@@ -53,5 +52,9 @@ class ItemsController < ApplicationController
   #ログインしていなくても一覧表示する
   def move_to_index
     redirect_to action: :index unless user_signed_in?
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
