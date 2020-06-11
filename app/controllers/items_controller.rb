@@ -53,6 +53,7 @@ class ItemsController < ApplicationController
     else
       flash.now[:alert] = "削除に失敗しました"
       render ("items/show")
+    end
   end
 
   def show
