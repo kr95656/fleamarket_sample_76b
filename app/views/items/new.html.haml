@@ -14,7 +14,7 @@
     説明
     = f.text_area :introduction, placeholder: "商品の説明(必須1,000文字以内)"
     カテゴリー
-    = f.collection_select :category_id, Category.all, :id, :name,{prompt: "選択してください"}
+    = f.collection_select :category_id,, Category.where(ancestry: nil), :id, :name,{prompt: "選択してください"}
     ブランド
     = f.text_field :brand, placeholder: "例) シャネル"
     コンディション
