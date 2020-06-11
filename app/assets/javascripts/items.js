@@ -8,8 +8,8 @@ $(document).on('turbolinks:load', function(){
                       <img src="" alt="preview">
                     </div>
                     <div class="lower-box">
-                      <div class="update-box">
-                        <div class="edit_btn">編集</div>
+                      <div class="update-box" id="edit_btn_${count}">
+                        編集
                       </div>
                       <div class="delete-box" id="delete_btn_${count}">
                         削除
@@ -36,6 +36,7 @@ $(document).on('turbolinks:load', function(){
       $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_src`});
       //選択したfileのオブジェクトを取得
       var file = this.files[0];
+
       var reader = new FileReader();
       //readAsDataURLで指定したFileオブジェクトを読み込む
       reader.readAsDataURL(file);
@@ -76,7 +77,6 @@ $(document).on('turbolinks:load', function(){
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       //取得したidに該当するプレビューを削除
       $(`#preview-box__${id}`).remove();
-      console.log("new")
       //フォームの中身を削除 
       $(`#item_images_attributes_${id}_src`).val("");
 
@@ -93,6 +93,17 @@ $(document).on('turbolinks:load', function(){
         $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_src`});
       }
     });
+    //編集
+    $(document).on('click', '.update-box', function() {
+      //update-boxが押された時にinput
+      var id = $(this).attr('id').replace(/[^0-9]/g, '');
+      $(`#item_images_attributes_${id}_src`).trigger("click")
+
+      var count = $('.preview-box').length;
+      setLabel(count);
+      // var id = $(this).attr('id').replace(/[^0-9]/g, '');
+      // $(`#preview-box__${id}`).attr('src', `${image}`);
+    })
   });
 });
 
