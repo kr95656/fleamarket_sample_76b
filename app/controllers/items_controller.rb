@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :new, :create, :edit, :update]
   before_action :set_item, only: [:show, :edit, :update]
+
   def index
     @items = Item.all.order(created_at: "DESC").limit(3)
   end
@@ -45,6 +46,22 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @category = Category.find(@item.category_id)
+      
+    condition = ItemCondition.find(@item.item_condition_id)
+    @condition = condition.name
+    
+    postage_payer =  PostagePayer.find(@item.postage_payer_id)
+    @postage_payer = postage_payer.name
+    
+    shipping_day = ShippingDay.find(@item.shipping_day_id)
+    @shipping_day = shipping_day.name
+    
+    shipping_prefecture = ShippingPrefecture.find(@item.shipping_prefecture_id)
+    @shipping_prefecture = shipping_prefecture.name
+  end
+
   def item_params
     params.require(:item).permit(:name, :introduction, :category_id, :brand, :item_condition_id, :postage_payer_id, :shipping_prefecture_id, :shipping_day_id, :price, :trading_status, images_attributes: [:url, :_destroy, :id])
   end
@@ -57,4 +74,5 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
 end
