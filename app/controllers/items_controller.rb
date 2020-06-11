@@ -22,12 +22,8 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # @post_item_user = @item.user
     @category = Category.find(@item.category_id)
-    # area = ShippingPrefecture.all.pluck(:name)
-    # @area = @item.area
-    # condition = ItemCondition.all.pluck(:name)
-    
+      
     condition = ItemCondition.find(@item.item_condition_id)
     @condition = condition.name
     
@@ -39,7 +35,6 @@ class ItemsController < ApplicationController
     
     shipping_prefecture = ShippingPrefecture.find(@item.shipping_prefecture_id)
     @shipping_prefecture = shipping_prefecture.name
- 
   end
 
   def item_params
