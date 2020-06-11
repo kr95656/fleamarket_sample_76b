@@ -46,6 +46,7 @@ class ItemsController < ApplicationController
     end
   end
 
+
   def show
     @category = Category.find(@item.category_id)
       
@@ -61,6 +62,7 @@ class ItemsController < ApplicationController
     shipping_prefecture = ShippingPrefecture.find(@item.shipping_prefecture_id)
     @shipping_prefecture = shipping_prefecture.name
   end
+
 
   def item_params
     params.require(:item).permit(:name, :introduction, :category_id, :brand, :item_condition_id, :postage_payer_id, :shipping_prefecture_id, :shipping_day_id, :price, :trading_status, images_attributes: [:url, :_destroy, :id])
