@@ -21,7 +21,7 @@ $(document).on('turbolinks:load', function(){
     //items/:i/editページへリンクした際のアクション=======================================
     if (window.location.href.match(/\/items\/\d+\/edit/)){
       //登録済み画像のプレビュー表示欄の要素を取得する
-      var prevContent = $('.label-content').prev();
+      var prevContent = $('.label-content').prev()
       labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
       $('.label-content').css('width', labelWidth);
       //プレビューにidを追加
@@ -230,4 +230,5 @@ $(document).on('turbolinks:load', ()=> {
 
 //   });
 // });
+
 

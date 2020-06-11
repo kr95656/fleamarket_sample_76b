@@ -24,10 +24,10 @@
               .hidden-content
                 = f.fields_for :images do |image|
                   = image.file_field :url, class: 'hidden-field'
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][src]", id: "item_images_attributes_1_src" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][src]", id: "item_images_attributes_2_src" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][src]", id: "item_images_attributes_3_src" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][src]", id: "item_images_attributes_4_src" }          
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][url]", id: "item_images_attributes_1_url" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][url]", id: "item_images_attributes_2_url" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][url]", id: "item_images_attributes_3_url" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][url]", id: "item_images_attributes_4_url" }          
           = f.hidden_field :trading_status, value: "販売中"
         
         .sell-content
