@@ -40,7 +40,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_shipping_destination
-    binding.pry
     @user = User.new(session["devise.regist_data"]["user"])
     @profile = Profile.new(session["profile"])
     @shipping_destination = ShippingDestination.new(shipping_destination_params)
@@ -52,6 +51,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_shipping_destination(@shipping_destination.attributes)
     @user.save
     sign_in(:user, @user)
+    redirect_to root_path
   end
 
 

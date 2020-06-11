@@ -17,10 +17,17 @@
         %li.listsLeft__item
           = link_to root_path do
             ブランド
+
       %ul.listsRight
-        %li.listsRight__item.listsRight__item--login
-          = link_to user_session_path do
-            ログイン
-        %li.listsRight__item.listsRight__item--new
-          = link_to  new_user_registration_path do
-            新規会員登録
+        -if user_signed_in?
+          %li.listsRight__item.listsRight__item--new
+            = link_to  destroy_user_session_path, method: :delete,id:'catBtn' do
+              ログアウト
+        -else
+          %li.listsRight__item.listsRight__item--login
+            = link_to user_session_path,id:'catBtn' do
+              ログイン
+            %ul.headder__nav-listsright-brandsPulldown
+          %li.listsRight__item.listsRight__item--new
+            = link_to  new_user_registration_path,id:'catBtn' do
+              新規会員登録

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_012901) do
+ActiveRecord::Schema.define(version: 2020_06_11_030508) do
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name", null: false
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_012901) do
     t.string "city", null: false
     t.string "address", null: false
     t.string "building"
-    t.integer "phone_number"
+    t.bigint "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_shipping_destinations_on_user_id"
