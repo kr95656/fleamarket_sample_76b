@@ -16,10 +16,10 @@ class ItemsController < ApplicationController
   end
 
   def edit 
-    unless @item.user.id == current_user.id 
-      redirect_to posts_path
-      flash[:alert] = "権限がありません"
-    end
+    # unless @item.user.id == current_user.id 
+    #   redirect_to posts_path
+    #   flash[:alert] = "権限がありません"
+    # end
   end
 
   def update

@@ -17,6 +17,33 @@ $(document).on('turbolinks:load', function(){
       return html;
     }
 
+     // 投稿編集時
+    //items/:i/editページへリンクした際のアクション=======================================
+    if (window.location.href.match(/\/items\/\d+\/edit/)){
+      //登録済み画像のプレビュー表示欄の要素を取得する
+      var prevContent = $('.label-content').prev();
+      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
+      $('.label-content').css('width', labelWidth);
+      //プレビューにidを追加
+      $('.preview-box').each(function(index, box){
+        $(box).attr('id', `preview-box__${index}`);
+      })
+      //削除ボタンにidを追加
+      $('.delete-box').each(function(index, box){
+        $(box).attr('id', `delete_btn_${index}`);
+      })
+      $('.update-box').each(function(index, box){
+        $(box).attr('id', `_btn_${index}`);
+      })
+
+      var count = $('.preview-box').length;
+      //プレビューが5あるときは、投稿ボックスを消しておく
+      if (count == 5) {
+        $('.label-content').hide();
+      }
+    }
+    //=============================================================================
+
     function setLabel() {
       var prevContent = $('.label-content').prev();
       labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
@@ -27,7 +54,7 @@ $(document).on('turbolinks:load', function(){
     $(document).on('change', '.hidden-field', function() {
       setLabel();
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
-      $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_src`});
+      $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_url`});
       var file = this.files[0];
       var reader = new FileReader();
       reader.readAsDataURL(file);
@@ -49,17 +76,16 @@ $(document).on('turbolinks:load', function(){
 
         setLabel();
         if(count < 5){
-          $('.label-box').attr({id: `label-box--${count}`,for: `item_images_attributes_${count}_src`});
+          $('.label-box').attr({id: `label-box--${count}`,for: `item_images_attributes_${count}_url`});
         }
       }
     });
-
     $(document).on('click', '.delete-box', function() {
       var count = $('.preview-box').length;
       setLabel(count);
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       $(`#preview-box__${id}`).remove();
-      $(`#item_images_attributes_${id}_src`).val("");
+      $(`#item_images_attributes_${id}_url`).val("");
       var count = $('.preview-box').length;
       if (count == 4) {
         $('.label-content').show();
@@ -67,13 +93,13 @@ $(document).on('turbolinks:load', function(){
       setLabel(count);
 
       if(id < 5){
-        $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_src`});
+        $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_url`});
       }
     });
 
     $(document).on('click', '.update-box', function() {
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
-      $(`#item_images_attributes_${id}_src`).trigger("click")
+      $(`#item_images_attributes_${id}_url`).trigger("click")
 
     })
   });
@@ -204,3 +230,4 @@ $(document).on('turbolinks:load', ()=> {
 
 //   });
 // });
+
