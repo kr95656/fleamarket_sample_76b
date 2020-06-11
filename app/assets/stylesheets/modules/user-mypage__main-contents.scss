@@ -1,0 +1,179 @@
+@mixin tabs-list-setting {
+  height:               100%;
+  width:                50%;
+  font-size:            16px;
+  line-height:          74px;
+  display:              block;
+  text-align:           center;
+  font-weight:          bold;
+}
+
+@mixin tabs-setting {
+  height:               74px;
+  width:                100%;
+  display:              flex;
+}
+
+@mixin not-found-data {
+  padding:             160px 0 60px;
+  font-size:           16px;
+  font-weight:         600;
+  background:          url("logo.png");
+  background-size:     100px 50px;
+  background-position: center 60px;
+  background-repeat:   no-repeat;
+  text-align:          center;
+  color:               #ccc;
+
+}
+
+.main-contents {
+  // text-align: center;
+  width:                  100%;
+  height:                 100%;
+  
+  .mypage-user-icon {
+    width:                700px;
+    height:               200px;
+    padding:              40px 20px;
+    position:             relative;
+    text-align:           center;
+    background-color:     #3CCACE;
+
+    &__container {
+      top:                25%;
+      left:               0;
+      right:              0;
+      position:           absolute;
+      display:            block;
+      color:              #333;
+
+      figure {
+        height:           60px;
+        width:            60px;
+        margin:           0 auto;
+
+        .user-icon {
+  
+        }
+      }
+      .user-name {
+        margin:           8px 0 0;
+        font-size:        14px;
+        line-height:      1;
+        color:            #333;
+        font-weight:      bold;
+
+      }
+      .mypage-number {
+        margin:           8px 0 0;
+        display:          flex;
+        justify-content:  center;
+        align-items:      center;
+        
+        .evaluation {
+          font-size:      14px;
+
+          .bold {
+            font-size:    16px;
+            margin:       0 0 0 8px;
+          }
+        }
+        .exhibition {
+          font-size:      14px;
+          margin:         0 0 0 16px;
+
+          .bold {
+            font-size:    16px;
+            margin:       0 0 0 8px;
+
+          }
+        }
+      }
+    }
+  }
+
+  .mypage-tab-container__notification-todo {
+    width:               700px;
+    height:              310px;
+    background-color:   #fff;
+
+    .mypage-tabs {
+      @include          tabs-setting();
+      
+      > li {
+        @include        tabs-list-setting();
+       
+      }
+      .notification {
+        background:     #eee;
+        
+      }      
+      .todo {
+
+      }
+    }
+    .tab-contents {
+
+      &--notification__todo {
+
+        &__not-found {
+          @include      not-found-data();
+
+        }
+      }
+
+      &--notification__items {
+
+      }
+    }
+  }
+  
+  .mypage-transaction {
+    width:              700px;
+    height:             382px;
+    margin:             40px 0 0 0;
+    background:         #fff;
+
+    &__head {
+      width:            100%;
+      height:           72px;
+      line-height:      72px;
+      padding:          0 16px;
+      font-size:        1.2em;
+      background:     #fafafa;
+      font-weight:      bold;
+
+    }
+    &__tabs {
+      @include          tabs-setting();
+    
+      > li {
+        @include        tabs-list-setting();
+       
+      }
+      .just-trading {
+
+      }
+      .trade-history {
+
+        background:     #eee;
+
+      }
+    }
+    .tab-contents--transaction {
+
+      &__now {
+       
+        &__not-found {
+
+          @include      not-found-data();
+
+        }
+      }
+      &__past {
+
+      }
+    }
+  }
+}
