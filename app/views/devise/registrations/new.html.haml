@@ -33,7 +33,10 @@
           %br/
           = f.password_field :password_confirmation, autocomplete: "new-password", class: 'signupWrapper__content__formGroup__form', placeholder: '上記と同じパスワードを入力してください'
         
+
+        
         .signupWrapper__content__submit
           = f.submit "本人確認情報入力へ進む" ,class: 'signupWrapper__content__submit__btn'
 
   = render partial: 'footer'
+  

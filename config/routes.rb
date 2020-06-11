@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+  }
+
+  devise_scope :user do
+    get 'profiles', to: 'users/registrations#new_profile'
+    post 'profiles', to: 'users/registrations#create_profile'
+    post 'shipping_destinations', to: 'users/registrations#create_shipping_destination'
+    get 'shipping_destinations', to: 'users/registrations#new_shipping_destination'
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "top#index"
-  resources :users, only: :index
-  resources :items, only: [:new, :show, :create, :edit, :update]
+
+  resources :users, only: :show do
+    get 'logout' => "users#logout"
+  end
 end

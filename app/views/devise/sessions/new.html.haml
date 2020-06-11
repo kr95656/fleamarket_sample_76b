@@ -12,13 +12,13 @@
           = f.label :メールアドレス, class: 'signinWrapper__content__formGroup__label'
           %span.signinWrapper__content__formGroup__label--must 必須
           %br/
-          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'signinWrapper__content__formGroup__form'
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'signinWrapper__content__formGroup__form', placeholder: 'PC・携帯どちらでも可'
         
         .signinWrapper__content__formGroup
           = f.label :パスワード, class: 'signinWrapper__content__formGroup__label'
           %span.signinWrapper__content__formGroup__label--must 必須
           %br/
-          = f.password_field :password, autocomplete: "new-password", class: 'signinWrapper__content__formGroup__form'
+          = f.password_field :password, autocomplete: "new-password", class: 'signinWrapper__content__formGroup__form', placeholder: '７文字以上の半角英数字'
                 
         .signinWrapper__content__submit
           = f.submit "ログインする" ,class: 'signinWrapper__content__submit__btn'
