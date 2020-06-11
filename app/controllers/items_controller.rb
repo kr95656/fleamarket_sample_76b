@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index, :new, :create, :edit, :update]
-  before_action :set_item, only: [:show, :edit, :update]
+  before_action :move_to_index, except: [:index]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.all.order(created_at: "DESC").limit(3)
@@ -16,10 +16,10 @@ class ItemsController < ApplicationController
   end
 
   def edit 
-    # unless @item.user.id == current_user.id 
-    #   redirect_to posts_path
-    #   flash[:alert] = "権限がありません"
-    # end
+    unless @item.user.id == current_user.id 
+      redirect_to posts_path
+      flash[:alert] = "権限がありません"
+    end
   end
 
   def update
@@ -46,6 +46,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    if current_user.id == @item.user.id && @item.destroy
+      flash[:notice] = "削除しました"
+      redirect_to root_path
+    else
+      flash.now[:alert] = "削除に失敗しました"
+      render ("items/show")
+  end
 
   def show
     @category = Category.find(@item.category_id)

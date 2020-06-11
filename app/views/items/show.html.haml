@@ -22,6 +22,9 @@
   %li
     = @condition
 
+  - if current_user.id == @item.user.id
+  = link_to '削除', item_path, method: :delete
+
 -# -if(current_user.id == @item.user_id)
 -#   %li
 -#     = link_to '商品情報を編集する', '#' 

@@ -17,5 +17,5 @@ Rails.application.routes.draw do
     get 'logout' => "users#logout"
   end
 
-  resources :items, only: [:new, :create, :show, :edit, :update]
+  resources :items, only: [:new, :create, :show, :edit, :update, :destroy]
 end
