@@ -77,6 +77,8 @@ $(document).on('turbolinks:load', function(){
       $(`#item_images_attributes_${id}_src`).trigger("click")
 
     })
+  });
+});
 
 $(document).on('turbolinks:load', ()=> {
   // 画像用のinputを生成する関数
