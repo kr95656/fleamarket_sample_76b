@@ -13,7 +13,6 @@ class CardController < ApplicationController
       redirect_to credit_card_path(current_user.id), alert: "クレジットカードが登録できませんでした。"
     else
       customer = Payjp::Customer.create(
-      email: current_user.email,
       card: params['payjp-token'],
       metadata: {user_id: current_user.id}
       ) 
@@ -26,7 +25,7 @@ class CardController < ApplicationController
     end
   end
 
-  def delete #PayjpとCardデータベースを削除します
+  def delete
     card = Card.where(user_id: current_user.id).first
     if card.blank?
     else
