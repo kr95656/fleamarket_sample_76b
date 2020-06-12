@@ -43,10 +43,12 @@ ActiveRecord::Schema.define(version: 2020_06_11_030508) do
     t.string "shipping_prefecture_id", null: false
     t.string "shipping_day_id", null: false
     t.integer "price", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "trading_status", null: false
     t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "postage_payers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -110,6 +112,7 @@ ActiveRecord::Schema.define(version: 2020_06_11_030508) do
 
   add_foreign_key "images", "items"
   add_foreign_key "items", "categories"
+  add_foreign_key "items", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "shipping_destinations", "users"
 end
