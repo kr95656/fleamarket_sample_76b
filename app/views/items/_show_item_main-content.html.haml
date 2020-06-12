@@ -35,20 +35,11 @@
           = @shipping_day
 
 
-
-
--#   %li
--#     = @item.introduction
--#   %li
--#     = @item.price
-
--#   %li
--#     = @condition
-
--# -if(current_user.id == @item.user_id)
--#   %li
--#     = link_to '商品情報を編集する', '#' 
--#   %li
--#     = link_to '削除する', '#' 
--#   %li
--#     = link_to '購入画面に進む', '#'
+-if(current_user.id == @item.user_id)
+  %li
+    = link_to '商品情報を編集する', '#' 
+  %li
+    = link_to '削除する', '#' 
+-else
+  %li
+    = link_to '購入画面に進む', '#'
