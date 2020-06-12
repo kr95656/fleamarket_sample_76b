@@ -168,12 +168,9 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false, unique: true|
-|expiration_year|integer|null: false|
-|expiration_month|integer|null: false|
-|security_code|integer|null: false|
-|user|reference|null: false, foreign_key: true|
-
+|user_id|integer|null: false, foreign_key: true|
+|customer_id|integer|null: false|
+|card_id|integer|null: false|
 
 ### Association
 - belongs_to:user
