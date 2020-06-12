@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 
-## usersテーブル
+## Usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -83,7 +83,7 @@ Things you may want to cover:
 
 
 
-##  Categoriesテーブル
+## Categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -134,7 +134,7 @@ Things you may want to cover:
 - has_many :items
 
 
-## shipping_destinationテーブル
+## Shipping_destinationテーブル
 
 |Column|Type|Options|
 |------|-----|-----|
@@ -164,7 +164,7 @@ Things you may want to cover:
 - has_many :items
 
 
-## Credit_cards テーブル
+## Cards テーブル
 
 |Column|Type|Options|
 |------|----|-------|
