@@ -17,5 +17,7 @@ class UsersController < ApplicationController
   # def production?
   #   Rails.env.production?
   # end
+  def show
+  end
 
 end
