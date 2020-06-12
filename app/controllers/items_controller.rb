@@ -48,6 +48,9 @@ class ItemsController < ApplicationController
 
 
   def show
+    # user = User.all
+    @user = @item.user.nickname
+
     @category = Category.find(@item.category_id)
       
     condition = ItemCondition.find(@item.item_condition_id)

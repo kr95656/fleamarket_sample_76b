@@ -1,31 +1,6 @@
-%ul
-  %li
-    =  @shipping_prefecture
-  %li
-    = image_tag @item.images[0].url.url
-  %li
-    = @category.name
-  %li
-    = @item.brand
-  %li
-    = @item.name
-  %li
-    = @item.introduction
-  %li
-    = @item.price
-  %li
-    = @postage_payer
-  %li
-    = @shipping_day
-  %li
-    = @item.trading_status
-  %li
-    = @condition
-
--# -if(current_user.id == @item.user_id)
--#   %li
--#     = link_to '商品情報を編集する', '#' 
--#   %li
--#     = link_to '削除する', '#' 
--#   %li
--#     = link_to '購入画面に進む', '#'
+.header
+  = render partial: 'top/header'
+.wrapper
+  = render partial: 'items/show_item_main-content'
+.footer
+  = render partial: 'top/footer'
