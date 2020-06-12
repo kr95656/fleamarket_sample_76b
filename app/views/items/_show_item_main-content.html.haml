@@ -33,7 +33,8 @@
         %th 発送日の目安
         %td 
           = @shipping_day
-
+  .item-price
+    = @item.price
 
 -if(current_user.id == @item.user_id)
   %li
