@@ -3,7 +3,7 @@
     = @item.name
   .item-main-content
     .item-photo
-      = image_tag @item.images[0].url.url
+      = image_tag @item.images[0].url.url, class: "item-photo__parent"
     %table.item-detail-table
       %tr
         %th 出品者
@@ -34,7 +34,10 @@
         %td 
           = @shipping_day
   .item-price
-    = @item.price
+    %span.item-price-bold= "¥#{@item.price.to_s(:delimited, delimiter: ',')}"
+    %span.item-tax (税込み)
+    %span.item-shipping-fee 送料込み
+      
 
 -if(current_user.id == @item.user_id)
   %li
