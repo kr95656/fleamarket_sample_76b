@@ -1,0 +1,26 @@
+.item-box-container {
+  padding: 24px 40px 40px;
+  max-width: 780px;
+  background-color:white;
+  margin:  0 auto;
+  .item-name {
+    font-weight: bold;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    word-wrap: break-word;
+    line-height: 1.4;
+  }
+  .item-main-content {
+    .item-photo {
+
+    }
+    .item-detail-table {
+
+    }
+  }
+  .item-price {
+
+  }
+
+}
