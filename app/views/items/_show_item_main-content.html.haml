@@ -1,0 +1,44 @@
+%section.item-box-container
+  %h1.item-name<
+    = @item.name
+  .item-main-content
+    .item-photo
+      = image_tag @item.images[0].url.url, class: "item-photo__parent"
+    %table.item-detail-table
+      %tr
+        %th 出品者
+        %td 
+          = @user
+      %tr
+        %th カテゴリー
+        %td
+          = @category.name
+      %tr
+        %th ブランド
+        %td 
+          = @item.brand
+      %tr
+        %th 商品の状態
+        %td 
+          = @item.trading_status
+      %tr
+        %th 配送料の負担
+        %td 
+          = @postage_payer
+      %tr
+        %th 発送元の地域
+        %td 
+          = @shipping_prefecture
+      %tr
+        %th 発送日の目安
+        %td 
+          = @shipping_day
+  .item-price
+    %span.item-price-bold= "¥#{@item.price.to_s(:delimited, delimiter: ',')}"
+    %span.item-tax (税込み)
+    %span.item-shipping-fee 送料込み
+  -if(current_user.id == @item.user_id)
+    = link_to '商品情報を編集する', '#', class: "item-edit-btn"
+    = link_to '削除する', '#', class: "item-delete-btn"
+  -else
+    = link_to '購入画面に進む', '#', class: "item-buy-btn"
