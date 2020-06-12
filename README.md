@@ -35,7 +35,7 @@ Things you may want to cover:
 ### Association
 - has_one :profile,dependent: :destroy
 - has_one :shipping_destination, dependent: :destroy
-- has_one :credit_card, dependent: :destroy
+- has_one :card, dependent: :destroy
 - has_many :items, dependent: :destroy
 
 ## Profilesテーブル
