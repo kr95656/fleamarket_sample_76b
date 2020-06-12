@@ -37,13 +37,8 @@
     %span.item-price-bold= "¥#{@item.price.to_s(:delimited, delimiter: ',')}"
     %span.item-tax (税込み)
     %span.item-shipping-fee 送料込み
-      
-
--if(current_user.id == @item.user_id)
-  %li
-    = link_to '商品情報を編集する', '#' 
-  %li
-    = link_to '削除する', '#' 
--else
-  %li
-    = link_to '購入画面に進む', '#'
+  -if(current_user.id == @item.user_id)
+    = link_to '商品情報を編集する', '#', class: "item-edit-btn"
+    = link_to '削除する', '#', class: "item-delete-btn"
+  -else
+    = link_to '購入画面に進む', '#', class: "item-buy-btn"
