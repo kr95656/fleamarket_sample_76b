@@ -2,5 +2,6 @@
   = render partial: 'top/header'
 .wrapper
   = render partial: 'items/show_item_main-content'
+  = link_to '削除', item_path, method: :delete
 .footer
   = render partial: 'top/footer'

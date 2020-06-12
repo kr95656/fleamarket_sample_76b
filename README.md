@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 
-## usersテーブル
+## Usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -35,7 +35,7 @@ Things you may want to cover:
 ### Association
 - has_one :profile,dependent: :destroy
 - has_one :shipping_destination, dependent: :destroy
-- has_one :credit_card, dependent: :destroy
+- has_one :card, dependent: :destroy
 - has_many :items, dependent: :destroy
 
 ## Profilesテーブル
@@ -83,7 +83,7 @@ Things you may want to cover:
 
 
 
-##  Categoriesテーブル
+## Categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -134,7 +134,7 @@ Things you may want to cover:
 - has_many :items
 
 
-## shipping_destinationテーブル
+## Shipping_destinationテーブル
 
 |Column|Type|Options|
 |------|-----|-----|
@@ -164,16 +164,13 @@ Things you may want to cover:
 - has_many :items
 
 
-## Credit_cards テーブル
+## Cards テーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false, unique: true|
-|expiration_year|integer|null: false|
-|expiration_month|integer|null: false|
-|security_code|integer|null: false|
-|user|reference|null: false, foreign_key: true|
-
+|user_id|integer|null: false, foreign_key: true|
+|customer_id|integer|null: false|
+|card_id|integer|null: false|
 
 ### Association
 - belongs_to:user
