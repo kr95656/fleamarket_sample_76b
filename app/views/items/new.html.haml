@@ -91,7 +91,7 @@
           .price__right__content
             %label.price__mark
               ¥
-            = f.text_field :price, placeholder: "0"
+            = f.number_field :price, placeholder: "0"
         .send 
           .send__btn
             = f.submit "出品する",onfocus: "this.blur();"
