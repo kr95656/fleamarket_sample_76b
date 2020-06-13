@@ -43,3 +43,6 @@
     -# = link_to '削除する', '#', class: "item-delete-btn"
   -else
     = link_to '購入画面に進む', '#', class: "item-buy-btn"
+  .item-introduction
+    %p.item-introduction__content
+      = @item.introduction
