@@ -3,10 +3,11 @@
     = @item.name
   .item-main-content
     .item-photo
-      = image_tag @item.images[0].url.url, class: "item-photo__parent"
-    .item-photo-children
-      - @item.images[1..-1].each do |image|
-        = image_tag image.url.url, class:'main-content__photoSub--small'
+      .item-photo__main
+        = image_tag @item.images[0].url.url, class: "item-photo__main__parent"
+      .item-photo__sub
+        - @item.images[1..-1].each do |image|
+          = image_tag image.url.url, class:'item-photo__sub__children'
     %table.item-detail-table
       %tr
         %th 出品者
