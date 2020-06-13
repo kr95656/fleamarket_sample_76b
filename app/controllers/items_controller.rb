@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index]
+  before_action :move_to_index, except: :index
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -82,7 +82,10 @@ class ItemsController < ApplicationController
 
   #ログインしていなくても一覧表示する
   def move_to_index
-    redirect_to action: :index unless user_signed_in?
+    unless user_signed_in?
+    flash.now[:alert] = "ログインをしてください"
+    redirect_to root_path
+    end
   end
 
   def set_item
