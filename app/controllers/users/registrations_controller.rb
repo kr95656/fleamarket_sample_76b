@@ -45,9 +45,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(session["devise.regist_data"]["user"])
     @profile = Profile.new(session["profile"])
     @shipping_destination = ShippingDestination.new(shipping_destination_params)
+  
     if @shipping_destination.invalid?
-      flash.now[:alert] = @Shipping_destination.errors.full_messages
-      render :new_shipping  
+      flash.now[:alert] = @shipping_destination.errors.full_messages
+      render :new_shipping  and return
     end
     @user.build_profile(@profile.attributes)
     @user.build_shipping_destination(@shipping_destination.attributes)
