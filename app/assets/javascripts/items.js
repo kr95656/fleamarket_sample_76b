@@ -74,34 +74,58 @@ $(document).on('turbolinks:load', function(){
           $('.label-content').hide();
         }
 
+        if ($(`#item_images_attributes_${id}__destroy`)){
+          $(`#item_images_attributes_${id}__destroy`).prop('checked',false);
+        } 
+
         setLabel();
         if(count < 5){
           $('.label-box').attr({id: `label-box--${count}`,for: `item_images_attributes_${count}_url`});
         }
       }
     });
+
     $(document).on('click', '.delete-box', function() {
       var count = $('.preview-box').length;
       setLabel(count);
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       $(`#preview-box__${id}`).remove();
-      $(`#item_images_attributes_${id}_url`).val("");
-      var count = $('.preview-box').length;
-      if (count == 4) {
-        $('.label-content').show();
-      }
-      setLabel(count);
 
-      if(id < 5){
-        $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_url`});
+      if ($(`#item_images_attributes_${id}__destroy`).length == 0) {
+        //フォームの中身を削除 
+        $(`#item_images_attributes_${id}_image`).val("");
+        var count = $('.preview-box').length;
+        //5個めが消されたらラベルを表示
+        if (count == 4) {
+          $('.label-content').show();
+        }
+        setLabel(count);
+        if(id < 5){
+          $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+
+        }
+      } else {
+
+        //投稿編集時
+        $(`#item_images_attributes_${id}__destroy`).prop('checked',true);
+        //5個めが消されたらラベルを表示
+        if (count == 4) {
+          $('.label-content').show();
+        }
+
+        //ラベルのwidth操作
+        setLabel();
+        //ラベルのidとforの値を変更
+        //削除したプレビューのidによって、ラベルのidを変更する
+        if(id < 5){
+          $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+        }
       }
-    });
 
     $(document).on('click', '.update-box', function() {
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       $(`#item_images_attributes_${id}_url`).trigger("click")
-
+    })
     })
   });
 });
-
