@@ -101,7 +101,7 @@ $(document).on('turbolinks:load', function(){
         }
         setLabel(count);
         if(id < 5){
-          $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+          $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_url`});
 
         }
       } else {
@@ -118,7 +118,7 @@ $(document).on('turbolinks:load', function(){
         //ラベルのidとforの値を変更
         //削除したプレビューのidによって、ラベルのidを変更する
         if(id < 5){
-          $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+          $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_url`});
         }
       }
 
