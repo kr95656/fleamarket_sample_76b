@@ -7,7 +7,6 @@
     .signupWrapper__content
       = form_for(@shipping_destination , url: shipping_destinations_path ) do |f|
         = render "devise/shared/error_messages", resource: @shipping_destination
-
         .signupWrapper__content__formGroup
           = f.label :お名前, class: 'signupWrapper__content__formGroup__label'
           %span.signupWrapper__content__formGroup__label--must 必須
