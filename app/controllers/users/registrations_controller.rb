@@ -28,12 +28,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create_profile
     @user = User.new(session["devise.regist_data"]["user"])
-    @profile = Profile.new(profile_params)
-    if @profile.valid?
+    @profile = @user.build_profile(profile_params)
+    # @profile = @user.profile.new()
+    # valid? = varidationに引っかからないとき。 invalid? 
+    if @profile.invalid?
       flash.now[:alert] = @profile.errors.full_messages
       render :new_profile and return
     end
-    @user.build_profile(@profile.attributes)
+    
     session["profile"] = @profile.attributes
     @shipping_destination = @user.build_shipping_destination
     render :new_shipping 
@@ -43,7 +45,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(session["devise.regist_data"]["user"])
     @profile = Profile.new(session["profile"])
     @shipping_destination = ShippingDestination.new(shipping_destination_params)
-    if @shipping_destination.valid?
+    if @shipping_destination.invalid?
       flash.now[:alert] = @Shipping_destination.errors.full_messages
       render :new_shipping  
     end
