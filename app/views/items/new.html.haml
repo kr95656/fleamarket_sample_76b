@@ -1,12 +1,13 @@
 .product-new
   .new__header
     =  link_to image_tag('logo.png', size: "140x41"), root_path
-  = form_with model: @item do |f|
+  = form_with model: @item, local: true do |f|
     .post__new__wrapper
-      .main-content
+      - if @item.errors.any?
         - @item.errors.full_messages.each do |message|
           .form-error
             = message
+      .main-content
         .main-content__image
           #image-box
             %label.sell-content__image__label
