@@ -85,11 +85,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :birth_day)
+    params.require(:profile).permit(:first_name, :last_name, :first_name_kana, :last_name_kana,:birth_year,:birth_month,:birth_day)
   end
-  # def profile_params
-  #   params.require(:profile).permit(:first_name, :last_name, :first_name_kana, :last_name_kana,:birth_year,:birth_month,:birth_day)
-  # end
 
 
   def shipping_destination_params
