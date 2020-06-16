@@ -19,7 +19,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
     @profile = @user.build_profile
-    render :new_profile
+    # render :new_profile
+    redirect_to  profiles_path
   end
 
   def new_profile
