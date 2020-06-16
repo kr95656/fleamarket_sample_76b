@@ -21,7 +21,7 @@
       %ul.listsRight
         -if user_signed_in?
           %li.listsRight__item.listsRight__item--mypage
-            = link_to "#",id:'catBtn' do
+            = link_to "/users/#{current_user.id}",id:'catBtn' do
               マイページ
           %li.listsRight__item.listsRight__item--new
             = link_to  destroy_user_session_path, method: :delete,id:'catBtn' do
