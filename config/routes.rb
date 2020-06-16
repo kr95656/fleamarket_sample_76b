@@ -21,6 +21,12 @@ Rails.application.routes.draw do
 
   resources :items, only: [:new, :create, :show, :edit, :update, :destroy]
 
+  resources :items do
+    collection do
+      get :search
+    end
+  end
+
   resources :card, only: [:new, :show] do
     collection do
       post 'show', to: 'card#show'

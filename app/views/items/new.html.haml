@@ -50,7 +50,7 @@
               カテゴリー
               %span.detail-content__category__require
                 必須
-          = f.collection_select :category_id, Category.all, :id, :name,{prompt: "選択してください"}
+          = f.collection_select :category_id, @parents, :id, :name,{prompt: "選択してください"}
           .detail-content__brand
             %label.detail-content__brand__label
               ブランド

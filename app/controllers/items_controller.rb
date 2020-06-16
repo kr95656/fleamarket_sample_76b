@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: :index
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_parents, only: [:new, :create]
 
   def index
     @items = Item.all.order(created_at: "DESC").limit(3)
@@ -75,6 +76,19 @@ class ItemsController < ApplicationController
     @shipping_prefecture = shipping_prefecture.name
   end
 
+  def search
+    respond_to do |format|
+      format.html
+      format.json do
+        if params[:parent_id]
+          @childrens = Category.find(params[:parent_id]).children
+        elsif params[:children_id]
+          @grandChilds = Category.find(params[:children_id]).children
+        end
+      end
+    end
+  end
+
 
   def item_params
     params.require(:item).permit(:name, :introduction, :category_id, :brand, :item_condition_id, :postage_payer_id, :shipping_prefecture_id, :shipping_day_id, :price, :trading_status, images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id)
@@ -92,4 +106,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def set_parents
+    @parents = Category.where(ancestry: nil)
+  end
+  
 end
