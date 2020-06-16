@@ -50,7 +50,9 @@
               カテゴリー
               %span.detail-content__category__require
                 必須
-          = f.collection_select :category_id, @parents, :id, :name,{prompt: "選択してください"}
+          .selectBoxCategory
+            #parentsWrapper
+              = f.collection_select :category_id, @parents, :id, :name, { prompt: "選択してください" }, { id: "parentsCategory" }
           .detail-content__brand
             %label.detail-content__brand__label
               ブランド

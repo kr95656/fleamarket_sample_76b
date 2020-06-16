@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: :index
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :set_parents, only: [:new, :create]
+  before_action :set_parents, only: [:new, :create, :show, :edit, :update]
 
   def index
     @items = Item.all.order(created_at: "DESC").limit(3)
@@ -12,8 +12,12 @@ class ItemsController < ApplicationController
     @item.images.new
   end
 
-  def show
+  def categoryChildren
+    @categoryChildren = Category.find(params[:selectedCategory]).children
+  end
 
+  def categoryGrandChildren
+    @categoryGrandChildren = Category.find(params[:selectedCategory]).children
   end
 
   def edit 
@@ -21,6 +25,22 @@ class ItemsController < ApplicationController
       redirect_to posts_path
       flash[:alert] = "権限がありません"
     end
+
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent
+    end
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
+
   end
 
   def update
@@ -57,7 +77,13 @@ class ItemsController < ApplicationController
     end
   end
 
+
+
   def show
+    @grandChild = @item.category
+    @child = @grandChild.parent
+    @parent = @child.parent
+
     # user = User.all
     @user = @item.user.nickname
 
@@ -76,20 +102,7 @@ class ItemsController < ApplicationController
     @shipping_prefecture = shipping_prefecture.name
   end
 
-  def search
-    respond_to do |format|
-      format.html
-      format.json do
-        if params[:parent_id]
-          @childrens = Category.find(params[:parent_id]).children
-        elsif params[:children_id]
-          @grandChilds = Category.find(params[:children_id]).children
-        end
-      end
-    end
-  end
-
-
+  private
   def item_params
     params.require(:item).permit(:name, :introduction, :category_id, :brand, :item_condition_id, :postage_payer_id, :shipping_prefecture_id, :shipping_day_id, :price, :trading_status, images_attributes: [:url, :_destroy, :id]).merge(user_id: current_user.id)
   end
@@ -109,5 +122,5 @@ class ItemsController < ApplicationController
   def set_parents
     @parents = Category.where(ancestry: nil)
   end
-  
+
 end

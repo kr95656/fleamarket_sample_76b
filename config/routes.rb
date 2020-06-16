@@ -19,11 +19,16 @@ Rails.application.routes.draw do
     get 'logout' => "users#logout"
   end
 
-  resources :items, only: [:new, :create, :show, :edit, :update, :destroy]
+  # resources :items, only: [:new, :create, :show, :edit, :update, :destroy]
 
-  resources :items do
+  resources :items, except: :index do
     collection do
-      get :search
+      get 'categoryChildren'
+      get 'categoryGrandChildren'
+    end
+    member do
+      get 'categoryChildren'
+      get 'categoryGrandChildren'
     end
   end
 

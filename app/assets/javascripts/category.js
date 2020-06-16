@@ -8,11 +8,10 @@ $(function () {
     let childHtml = "";
 
     childHtml = `<div id = 'childrenWrapper'>
-                   <select id="childrenCategory" name="good[category_id]">
+                   <select id="childrenCategory" name="item[category_id]">
                     <option value="">選択してください</option>
                     ${insertHTML}
                    </select>
-                   <i class='fas fa-chevron-down'></i>
                  </div>`;
     $(".selectBoxCategory").append(childHtml);
   }
@@ -20,11 +19,10 @@ $(function () {
   function appendgrandChidrenBox(insertHTML) {
     let grandChildrenHtml = "";
     grandChildrenHtml = `<div id = 'grandChildrenWrapper'>
-                          <select id="grandChildrenCategory" name="good[category_id]">
+                          <select id="grandChildrenCategory" name="item[category_id]">
                             <option value="">選択してください</option>
                             ${insertHTML} 
                           </select>
-                          <i class='fa fa-chevron-down'></i>
                          </div>`;
     $(".selectBoxCategory").append(grandChildrenHtml);
   }
@@ -47,10 +45,11 @@ $(function () {
           children.forEach(function (child) {
             insertHTML += appendOption(child);
           });
+          console.log(this);
           appendChidrenBox(insertHTML);
         })
         .fail(function () {
-          alert("カテゴリー取得に失敗しました");
+          alert("子カテゴリー取得に失敗しました");
         });
     }
   });
@@ -75,7 +74,7 @@ $(function () {
           appendgrandChidrenBox(insertHTML);
         })
         .fail(function () {
-          alert("カテゴリー取得に失敗しました");
+          alert("孫カテゴリー取得に失敗しました");
         });
     }
   });
