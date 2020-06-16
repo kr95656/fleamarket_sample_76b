@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_110723) do
+ActiveRecord::Schema.define(version: 2020_06_12_020254) do
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
+  end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -53,9 +62,40 @@ ActiveRecord::Schema.define(version: 2020_06_09_110723) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "first_name_kana", null: false
+    t.string "last_name_kana", null: false
+    t.date "birth_year", null: false
+    t.date "birth_month", null: false
+    t.date "birth_day", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "shipping_days", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "shipping_destinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "destination_first_name", null: false
+    t.string "destination_last_name", null: false
+    t.string "destination_first_name_kana", null: false
+    t.string "destination_last_name_kana", null: false
+    t.integer "post_code", null: false
+    t.integer "prefecture_code", null: false
+    t.string "city", null: false
+    t.string "address", null: false
+    t.string "building"
+    t.bigint "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_shipping_destinations_on_user_id"
   end
 
   create_table "shipping_prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -76,6 +116,9 @@ ActiveRecord::Schema.define(version: 2020_06_09_110723) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cards", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "categories"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "shipping_destinations", "users"
 end
