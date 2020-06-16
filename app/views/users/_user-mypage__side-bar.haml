@@ -88,7 +88,7 @@
           電話番号の確認  
           %i.fas.fa-caret-right
       %li.mypage-nav__menu--list
-        =link_to "edit_user_path", method: :delete, class: "mypage-nav__menu--list__setting-item" do
+        =link_to destroy_user_session_path, method: :delete, class: "mypage-nav__menu--list__setting-item" do
           ログアウト 
           %i.fas.fa-caret-right
 
