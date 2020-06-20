@@ -12,8 +12,8 @@ class ShippingDestination < ApplicationRecord
   validates :prefecture_code, presence: true
   validates :city, presence: true
   validates :address, presence: true
-  validates :building, presence: true
-  validates :phone_number, presence: true
+  # validates :building, presence: true
+  # validates :phone_number, presence: true
   # validates :user, presence: true
 
 
