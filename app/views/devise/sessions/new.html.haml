@@ -5,7 +5,10 @@
     .signinWrapper__head
       %h2 ユーザ情報入力
     .signinWrapper__content
-      = form_for(@user, url: user_registration_path) do |f|
+      -# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = form_for(@user, url: user_session_path) do |f|
+   
+    
         = render "devise/shared/error_messages", resource: @user
                 
         .signinWrapper__content__formGroup
