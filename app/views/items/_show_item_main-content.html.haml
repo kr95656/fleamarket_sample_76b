@@ -16,7 +16,33 @@
       %tr
         %th カテゴリー
         %td
-          = "#{@parent.name} -> #{@child.name} -> #{@grandChild.name}"
+          - @parents.each do |parent|
+            -if @item.category_id == parent.id
+              = link_to '#' do
+                = parent.name
+                %br
+            - parent.children.each do |child|
+              -if @item.category_id == child.id
+                = link_to '#' do
+                  = parent.name
+                  %br
+                = link_to '#' do
+                  >
+                  = child.name
+                  %br
+              - child.children.each do |grandchild|
+                -if @item.category_id == grandchild.id
+                  = link_to '#' do
+                    = parent.name
+                  %br
+                  = link_to '#' do
+                    >
+                    = child.name
+                  %br
+                  = link_to '#' do
+                    >>
+                    = grandchild.name
+                  %br
       %tr
         %th ブランド
         %td 

@@ -2,7 +2,7 @@
 .product-new
   .new__header
     =  link_to image_tag('logo.png', size: "140x41"), root_path
-  = form_with model: @item do |f|
+  = form_with model: @item, local: true do |f|
     .post__new__wrapper
       .main-content
         - @item.errors.full_messages.each do |message|
