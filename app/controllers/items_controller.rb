@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
       redirect_to posts_path
       flash[:alert] = "権限がありません"
     end
+    
 
     grandchild_category = @item.category
     child_category = grandchild_category.parent
@@ -80,9 +81,7 @@ class ItemsController < ApplicationController
 
 
   def show
-    @grandChild = @item.category
-    @child = @grandChild.parent
-    @parent = @child.parent
+    
 
     # user = User.all
     @user = @item.user.nickname
