@@ -64,6 +64,7 @@ class ItemsController < ApplicationController
 
 
   def show
+
     # user = User.all
     @user = @item.user.nickname
 
