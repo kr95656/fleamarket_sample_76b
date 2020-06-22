@@ -124,6 +124,13 @@
     @include btn();
     
   }
+  .login-btn {
+    @include btn();
+  }
+  .resist-btn {
+    @include btn();
+
+  }
   .item-introduction {
     padding: 32px 0 0;
     line-height: 1.5;

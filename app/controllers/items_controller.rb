@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: :index
+  before_action :move_to_index, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_parents, only: [:new, :create, :show, :edit, :update]
 
