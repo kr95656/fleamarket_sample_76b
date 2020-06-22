@@ -78,5 +78,5 @@
       %p.item-introduction__content
         = @item.introduction
   -else
-    = link_to "ログインする", user_session_path
-    = link_to "新規会員登録する", new_user_registration_path
+    = link_to "ログインする", user_session_path, class:"login-btn"
+    = link_to "新規会員登録する", new_user_registration_path, class:"resist-btn"
