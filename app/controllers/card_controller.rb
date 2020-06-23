@@ -2,13 +2,9 @@ class CardController < ApplicationController
 
   require "payjp"
 
-  def index
-
-  end
-
   def new
-    card = Card.where(user_id: current_user.id)
-    redirect_to action: "show" if card.exists?
+    @card = Card.where(user_id: current_user.id)
+    redirect_to card_index_path  if @card.exists?
   end
 
   def pay
@@ -30,25 +26,27 @@ class CardController < ApplicationController
   end
 
   def delete
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
+    @card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    customer.delete
+    @card.delete
+    if @card.delete
+      redirect_to action: "new"
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      customer.delete
-      card.delete
-    end
       redirect_to action: "new", alert: "削除できませんでした。"
+    end
+
   end
 
   def show
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
+    @card = Card.where(user_id: current_user.id).first
+    if @card.blank?
       redirect_to action: "new" 
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
 end
