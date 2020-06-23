@@ -38,6 +38,9 @@ class ItemsController < ApplicationController
     end
   end
 
+  def pay
+    
+  end
 
 
   def create

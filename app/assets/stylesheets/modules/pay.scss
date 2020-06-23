@@ -1,0 +1,145 @@
+.main__purchage {
+  background-color: rgb(245, 245, 245);
+  margin: 0 auto;
+
+  &__wrapper {
+    background-color: #fff;
+    width: 700px;
+    height: 951px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+    .section__purchage {
+      width: 375px;
+      padding: 32px 16px;
+      margin: 0 auto;
+      border-bottom: 1px solid rgb(245, 245, 245);
+      
+      .main__top__title {
+        color: #333;
+        font-size: 24px;
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+}
+
+
+.main__product {
+  display: flex;
+
+}
+
+.main__product img {
+  height: 80px;
+  width: 80px;
+}
+
+.product__content {
+  display: flex;
+
+  .product__purchage {
+    margin-left: 8px;
+
+    .product__title {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .product__price {
+      font-size: 15px;
+      font-weight: bold;
+    }
+  }
+}
+
+.payment {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  
+  .payment__title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .payment__amount {
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+
+.purchage__box {
+  font-size: 14px;
+  color: #888;
+  display: flex;
+  justify-content: left;
+
+  .point__checkbox {
+    background-color: #ccc;
+    height: 20px;
+    width: 20px;
+  }
+}
+
+
+
+
+
+.payment__method {
+  display: flex;
+  justify-content: space-between;
+
+  .payment__title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .change {
+    font-size: 14px;
+    color: #0095ee;
+    text-decoration: none;
+  }
+}
+
+
+.payment__info {
+  text-align: left;
+
+  .payment__info p {
+    font-size: 14px;
+    color: #333;
+  }
+}
+
+
+
+.purchase {
+  border: none;
+  
+  &__text {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.5;
+    text-align-last: left;
+    margin-bottom: 24px;
+  }
+  
+  .btn {
+    width: 343px;
+    height: 50px;
+    background-color: rgb(234, 53, 45);
+    color: white;
+    font-size: 14px;
+    border-radius: 4px;
+    border: none;
+    font-weight: bold;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  
+}

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   resources :items, except: :index do
     collection do
+      get 'pay'
       get 'categoryChildren'
       get 'categoryGrandChildren'
     end
@@ -32,7 +33,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :card, only: [:new, :show] do
+  resources :card, only: [:new, :show, :index] do
     collection do
       post 'show', to: 'card#show'
       post 'pay', to: 'card#pay'

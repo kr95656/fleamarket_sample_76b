@@ -1,0 +1,42 @@
+.main__purchage
+  .main__purchage__wrapper
+    .section__purchage.main__top
+      %h2.main__top__title 購入内容の確認
+    .section__purchage.main__product
+      .product__content
+        =image_tag 'apple.jpeg',class: "store__image"
+        .product__purchage
+          %p.product__title 購入商品タイトル
+          %p.product__price 購入商品料金¥○○
+    .section__purchage.main__payment
+      .payment
+        %span.payment__title 支払い金額
+        %span.payment__amount ¥100
+      .point
+        %label.purchage__box{:for => "point__checkbox"}
+          %input.point__checkbox{:name => "point", :type => "checkbox", :value => "1"}/
+          ポイントを使用（所持ポイント:P〇〇）
+    .section__purchage
+      .payment__method
+        %h3.payment__title 支払い方法
+        %a.change{:href => "#"} 変更する
+      .payment__info
+        %p クレジットカード
+        %p *************1234
+        %p 有効期限 01/23
+        
+    .section__purchage
+      .payment__method
+        %h3.payment__title 配送先
+        %a.change{:href => "#"} 変更する
+      .payment__info
+        %p 〒123-4567
+        %p 福岡県福岡市中央区メルカリ1-2-3
+        %p メルカリオ
+    .section__purchage.purchase
+      %div
+        %p.purchase__text
+          郵便局/コンビニ受取をご希望の方は、購入後に
+          %b> 取引画面
+          から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
+      %button.btn.purchase 購入する
