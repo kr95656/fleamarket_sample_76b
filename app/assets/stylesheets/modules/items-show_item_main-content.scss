@@ -15,6 +15,24 @@
   letter-spacing: 2px;
 }
 
+@mixin sell-btn {
+  display: block;
+  background: #e66772;
+  border: 1px solid #e66772;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  margin: 16px auto 0;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  padding: 10px 0;
+  letter-spacing: 2px;
+
+}
+
 .item-box-container {
   padding: 24px 40px 40px;
   max-width: 780px;
@@ -123,6 +141,9 @@
   .item-delete-btn {
     @include btn();
     
+  }
+  .sell-btn {
+    @include sell-btn();
   }
   .login-btn {
     @include btn();

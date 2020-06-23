@@ -81,6 +81,7 @@ class ItemsController < ApplicationController
     
     shipping_day = ShippingDay.find(@item.shipping_day_id)
     @shipping_day = shipping_day.name
+
     
     shipping_prefecture = ShippingPrefecture.find(@item.shipping_prefecture_id)
     @shipping_prefecture = shipping_prefecture.name

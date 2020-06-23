@@ -68,10 +68,12 @@
     %span.item-tax (税込み)
     %span.item-shipping-fee 送料込み
   -if user_signed_in?
-    -if current_user.id == @item.user_id  
+    -if current_user.id == @item.user_id 
       = link_to '商品情報を編集する', edit_item_path(@item), class: "item-edit-btn"
       = link_to '削除する', item_path, class: "item-delete-btn", method: :delete
       -# = link_to '削除する', '#', class: "item-delete-btn"
+    -elsif @item.trading_status != "販売中"
+      .sell-btn 売り切れ
     -else
       = link_to '購入画面に進む', item_purchase_index_path(@item), class: "item-buy-btn"
     .item-introduction
