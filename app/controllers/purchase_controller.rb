@@ -30,6 +30,8 @@ class PurchaseController < ApplicationController
   end
 
   def done
+    @item = Item.find(params[:item_id])
+    @item.update(trading_status: "売り切れ")
   end
 
 
