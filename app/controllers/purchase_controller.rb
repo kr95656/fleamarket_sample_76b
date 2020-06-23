@@ -1,9 +1,8 @@
 class PurchaseController < ApplicationController
-
+  before_action :set_item
   require 'payjp'
 
   def index
-    @item = Item.find(params[:item_id])
     @shipping_destination = ShippingDestination.find_by(user_id: current_user.id)
     shipping_prefecture = ShippingPrefecture.find(@item.shipping_prefecture_id)
     @shipping_prefecture = shipping_prefecture.name
@@ -19,7 +18,6 @@ class PurchaseController < ApplicationController
   end
 
   def pay
-    @item = Item.find(params[:item_id])
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
@@ -31,9 +29,12 @@ class PurchaseController < ApplicationController
   end
 
   def done
-    @item = Item.find(params[:item_id])
     @item.update(trading_status: "売り切れ")
   end
 
+  private
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
 
 end
