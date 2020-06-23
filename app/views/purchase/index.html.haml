@@ -1,0 +1,61 @@
+.main__purchage
+  .main__purchage__wrapper
+    .section__purchage.main__top
+      %h2.main__top__title 購入内容の確認
+    .section__purchage.main__product
+      .product__content
+        =image_tag @item.images.first.url.url,class: "store__image"
+        .product__purchage
+          %p.product__title 
+            = @item.name
+          %p.product__price 
+            ¥
+            = @item.price
+    .section__purchage.main__payment
+      .payment
+        %span.payment__title 支払い金額
+        %span.payment__amount 
+          ¥
+          = @item.price
+      .point
+        %label.purchage__box{:for => "point__checkbox"}
+          %input.point__checkbox{:name => "point", :type => "checkbox", :value => "1"}/
+          ポイントを使用（所持ポイント:P〇〇）
+    .section__purchage
+      .payment__method
+        %h3.payment__title 支払い方法
+      .payment__info
+        %br
+        クレジットカード
+        %br
+        = "**** **** **** " + @default_card_information.last4
+        %br
+        有効期限
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = exp_month + " / " + exp_year
+
+    .section__purchage
+      .payment__method
+        %h3.payment__title 配送先
+      .payment__info
+        .piAddress__postCode
+          = "〒" + "#{@shipping_destination.post_code.to_s.insert(3, "-")}"
+        .piAddress__destination
+          = "#{@shipping_prefecture}" + "#{@shipping_destination.city}" + "#{@shipping_destination.address}"
+        .piAddress__name
+          = @shipping_destination.building
+    .section__purchage.purchase
+      %div
+        %p.purchase__text
+          郵便局/コンビニ受取をご希望の方は、購入後に
+          %b> 取引画面
+          から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
+      - if @card.blank?
+        .purchase__contents--button--message
+          クレジットカードが登録されていません
+      - else
+        %button.btn.purchase
+          = link_to '購入する', pay_item_purchase_index_path(id: @item.id), method: :post
+
+

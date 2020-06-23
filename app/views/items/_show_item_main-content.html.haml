@@ -73,7 +73,7 @@
       = link_to '削除する', item_path, class: "item-delete-btn", method: :delete
       -# = link_to '削除する', '#', class: "item-delete-btn"
     -else
-      = link_to '購入画面に進む', '#', class: "item-buy-btn"
+      = link_to '購入画面に進む', item_purchase_index_path(@item), class: "item-buy-btn"
     .item-introduction
       %p.item-introduction__content
         = @item.introduction
